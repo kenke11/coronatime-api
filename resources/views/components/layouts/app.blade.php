@@ -11,16 +11,14 @@
     @livewireStyles
 </head>
 <body>
+    @auth
+        <a href="{{route('logout')}}">logout</a>
+    @endauth
 
     <div
         class="min-h-full">
         {{$slot}}
     </div>
-
-
-    @if(session('success'))
-        <x-success-notification message="{{session('success')}}"/>
-    @endif
 
     @livewireScripts
 </body>

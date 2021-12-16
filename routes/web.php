@@ -30,4 +30,12 @@ Route::middleware('auth')->group(function () {
 	Route::get('/', function () {
 		return view('worldwide');
 	})->name('worldwide');
+	Route::get('/confirm_email', function () {
+		return view('auth.confirm-email');
+	})->name('confirm-email');
+
+	Route::get('/logout', function () {
+		auth()->logout();
+		return redirect()->route('login')->with('success', 'Good bey!');
+	})->name('logout');
 });

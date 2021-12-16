@@ -1,3 +1,3 @@
 <x-layouts.app>
-    <livewire:register />
+    <h1>confirm email</h1>
 </x-layouts.app>
