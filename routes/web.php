@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 	return view('auth.login');
 });
+
+Route::middleware('guest')->group(function () {
+	Route::get('/login', function () {
+		return view('auth.login');
+	})->name('login');
+	Route::get('/registration', function () {
+		return view('auth.register');
+	})->name('register');
+});
