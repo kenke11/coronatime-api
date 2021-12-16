@@ -39,9 +39,9 @@ class Register extends Component
 
 		session()->flash('success', 'Welcome to coronatime!');
 
-		Auth::login($user);
+//		Auth::login($user);
 
-		return redirect()->route('confirm-email');
+		return redirect()->route('verification.notice');
 	}
 
 	public function render()

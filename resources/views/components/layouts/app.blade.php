@@ -12,11 +12,12 @@
 </head>
 <body>
     @auth
-        <a href="{{route('logout')}}">logout</a>
+        <a class="absolute" href="{{route('logout')}}">logout</a>
     @endauth
 
     <div
-        class="min-h-full">
+        class="min-h-full"
+    >
         {{$slot}}
     </div>
 
