@@ -74,7 +74,7 @@
                             </div>
 
                             <div class="flex justify-center text-gray-500">
-                                <span>Don’t have and account? <a href="#" class="font-semibold text-gray-800">Sign up for free</a></span>
+                                <span>Don’t have and account? <a href="{{route('register')}}" class="font-semibold text-gray-800">Sign up for free</a></span>
                             </div>
                         </form>
                     </div>

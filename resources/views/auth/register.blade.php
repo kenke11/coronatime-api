@@ -104,7 +104,7 @@
                             </div>
 
                             <div class="flex justify-center text-gray-500">
-                                <span>Already have an account? <a href="#" class="font-semibold text-gray-800">Log in</a></span>
+                                <span>Already have an account? <a href="{{route('login')}}" class="font-semibold text-gray-800">Log in</a></span>
                             </div>
                         </form>
                     </div>

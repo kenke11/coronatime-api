@@ -25,3 +25,9 @@ Route::middleware('guest')->group(function () {
 		return view('auth.register');
 	})->name('register');
 });
+
+Route::middleware('auth')->group(function () {
+	Route::get('/', function () {
+		return view('worldwide');
+	})->name('worldwide');
+});
