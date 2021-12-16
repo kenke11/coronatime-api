@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Rules\PasswordConfirmation;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -14,14 +15,17 @@ class Register extends Component
 
 	public $password;
 
-	public $repeat_password;
+	public $password_confirmation;
 
-	protected $rules = [
-		'username'           => 'required|min:3',
-		'email'              => 'required|email|min:3',
-		'password'           => 'required|min:3',
-		'repeat_password'    => 'required',
-	];
+	protected function rules()
+	{
+		return [
+			'username'              => ['required', 'min:3', 'unique:users,username'],
+			'email'                 => 'required|email|min:3|unique:users,email',
+			'password'              => 'required|min:3',
+			'password_confirmation' => ['required', new PasswordConfirmation($this->password)],
+		];
+	}
 
 	public function createUser()
 	{
@@ -30,7 +34,6 @@ class Register extends Component
 		$user = User::create([
 			'username'          => $this->username,
 			'email'             => $this->email,
-			'email_verified_at' => now(),
 			'password'          => bcrypt($this->password),
 		]);
 

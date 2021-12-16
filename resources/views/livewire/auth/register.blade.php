@@ -106,21 +106,21 @@
                         </div>
 
                         <div class="space-y-1">
-                            <label for="repeat_password" class="block text-sm font-semibold text-gray-900">
+                            <label for="password_confirmation" class="block text-sm font-semibold text-gray-900">
                                 Repeat password
                             </label>
                             <div class="mt-1">
                                 <input
-                                    wire:model.defer="repeat_password"
-                                    id="repeat_password"
-                                    name="repeat_password"
+                                    wire:model.defer="password_confirmation"
+                                    id="password_confirmation"
+                                    name="password_confirmation"
                                     type="password"
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Repeat password"
                                 >
                             </div>
                             <div class="mt-1">
-                                @error('repeat_password')
+                                @error('password_confirmation')
                                 <div class="text-red-600 font-semibold text-xs flex ">
                                     <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
