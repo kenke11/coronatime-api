@@ -25,8 +25,13 @@ class Register extends Component
 			'username'              => ['required', 'min:3', 'unique:users,username'],
 			'email'                 => ['required', 'email', 'min:3', 'unique:users,email'],
 			'password'              => ['required', 'min:3'],
-			'password_confirmation' => ['required', new PasswordConfirmation($this->password)],
+			'password_confirmation' => [new PasswordConfirmation($this->password)],
 		];
+	}
+
+	public function updated($propertyName)
+	{
+		$this->validateOnly($propertyName);
 	}
 
 	public function createUser()

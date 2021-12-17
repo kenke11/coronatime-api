@@ -16,6 +16,11 @@ class Login extends Component
 		'password'    => 'required|min:3',
 	];
 
+	public function updated($propertyName)
+	{
+		$this->validateOnly($propertyName);
+	}
+
 	public function login()
 	{
 		if (auth()->attempt($this->validate()))

@@ -26,7 +26,7 @@
                             </label>
                             <div class="mt-1">
                                 <input
-                                    wire:model.defer="username"
+                                    wire:model="username"
                                     id="username"
                                     name="username"
                                     type="text"
@@ -59,7 +59,7 @@
                             </label>
                             <div class="mt-1">
                                 <input
-                                    wire:model.defer="email"
+                                    wire:model="email"
                                     id="email"
                                     name="email"
                                     type="email"
@@ -85,7 +85,7 @@
                             </label>
                             <div class="mt-1">
                                 <input
-                                    wire:model.defer="password"
+                                    wire:model="password"
                                     id="password"
                                     name="password"
                                     type="password"
@@ -111,7 +111,7 @@
                             </label>
                             <div class="mt-1">
                                 <input
-                                    wire:model.defer="password_confirmation"
+                                    wire:model="password_confirmation"
                                     id="password_confirmation"
                                     name="password_confirmation"
                                     type="password"

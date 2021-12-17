@@ -30,7 +30,7 @@
                             </label>
                             <div class="mt-1">
                                 <input
-                                    wire:model.defer="username"
+                                    wire:model="username"
                                     id="username"
                                     name="username"
                                     type="text"
@@ -56,7 +56,7 @@
                             </label>
                             <div class="mt-1">
                                 <input
-                                    wire:model.defer="password"
+                                    wire:model="password"
                                     id="password"
                                     name="password"
                                     type="password"
