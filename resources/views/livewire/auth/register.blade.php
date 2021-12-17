@@ -34,7 +34,7 @@
                                     placeholder="Enter unique username or email"
                                 >
                             </div>
-                            <div class="mt-1">
+                            <div class="mt-1 h-2">
                                 @error('username')
                                 <div class="mt-1 text-red-600 font-semibold text-xs flex ">
                                     <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -63,11 +63,11 @@
                                     id="email"
                                     name="email"
                                     type="email"
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="@error('email') border-red-600 @enderror appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Enter unique username or email"
                                 >
                             </div>
-                            <div class="mt-1">
+                            <div class="mt-1 h-2">
                                 @error('email')
                                     <div class="text-red-600 font-semibold text-xs flex ">
                                         <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -89,11 +89,11 @@
                                     id="password"
                                     name="password"
                                     type="password"
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="@error('password') border-red-600 @enderror appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Fill in password"
                                 >
                             </div>
-                            <div class="mt-1">
+                            <div class="mt-1 h-2">
                                 @error('password')
                                 <div class="text-red-600 font-semibold text-xs flex ">
                                     <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -115,11 +115,11 @@
                                     id="password_confirmation"
                                     name="password_confirmation"
                                     type="password"
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="@error('password_confirmation') border-red-600 @enderror appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Repeat password"
                                 >
                             </div>
-                            <div class="mt-1">
+                            <div class="mt-1 h-2">
                                 @error('password_confirmation')
                                 <div class="text-red-600 font-semibold text-xs flex ">
                                     <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

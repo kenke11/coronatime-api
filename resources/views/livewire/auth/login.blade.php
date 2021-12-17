@@ -19,17 +19,11 @@
                         action="#"
                         method="POST"
                         class="space-y-6">
-
-                        <div>
-                            @if($errors->any())
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li><small class="text-red-600">{{$error}}</small></li>
-                                    @endforeach
-                                </ul>
-                            @endif
+                        <div class="h-2">
+                            @error('not_verified')
+                                <p class="text-red-600 text-xs font-semibold">{{$message}}</p>
+                            @enderror
                         </div>
-
                         <div class="mt-3">
                             <label for="username" class="block text-sm font-semibold text-gray-900">
                                 Username
@@ -43,6 +37,16 @@
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Enter unique username or email"
                                 >
+                            </div>
+                            <div class="mt-1 h-2">
+                                @error('username')
+                                <div class="text-red-600 font-semibold text-xs flex ">
+                                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-2 self-center">{{$message}}</span>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -60,6 +64,16 @@
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Fill in password"
                                 >
+                            </div>
+                            <div class="mt-1 h-5">
+                                @error('password')
+                                <div class="text-red-600 font-semibold text-xs flex ">
+                                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-2 self-center">{{$message}}</span>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 

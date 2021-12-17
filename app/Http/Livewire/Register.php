@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\VerifyEmail;
 use App\Models\User;
 use App\Rules\PasswordConfirmation;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Register extends Component
@@ -21,8 +23,8 @@ class Register extends Component
 	{
 		return [
 			'username'              => ['required', 'min:3', 'unique:users,username'],
-			'email'                 => 'required|email|min:3|unique:users,email',
-			'password'              => 'required|min:3',
+			'email'                 => ['required', 'email', 'min:3', 'unique:users,email'],
+			'password'              => ['required', 'min:3'],
 			'password_confirmation' => ['required', new PasswordConfirmation($this->password)],
 		];
 	}
@@ -32,14 +34,15 @@ class Register extends Component
 		$this->validate();
 
 		$user = User::create([
-			'username'          => $this->username,
-			'email'             => $this->email,
-			'password'          => bcrypt($this->password),
+			'username'             => $this->username,
+			'email'                => $this->email,
+			'email_verified_token' => Str::random(60),
+			'password'             => bcrypt($this->password),
 		]);
 
-		session()->flash('success', 'Welcome to coronatime!');
+		Mail::to($user->email)->send(new VerifyEmail($user));
 
-//		Auth::login($user);
+		session()->flash('success', 'Welcome to coronatime!');
 
 		return redirect()->route('verification.notice');
 	}

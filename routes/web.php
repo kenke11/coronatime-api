@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmailVerificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,3 +40,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 		return view('worldwide');
 	})->name('worldwide');
 });
+
+Route::get('/user/verify/{token}', [EmailVerificationController::class, 'verifyEmail'])->name('verified-email');
+
+Route::get('/confirmed-email', function () {
+	return view('auth.verified-email');
+})->name('verified');

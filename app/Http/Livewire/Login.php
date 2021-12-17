@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Nette\Schema\ValidationException;
+use Illuminate\Validation\ValidationException;
 
 class Login extends Component
 {
@@ -20,7 +20,20 @@ class Login extends Component
 	{
 		if (auth()->attempt($this->validate()))
 		{
-			return redirect()->route('worldwide')->with('success', 'Welcome back!');
+			if (auth()->user()->email_verified_at === null)
+			{
+				auth()->logout();
+				$this->addError('not_verified', 'User is not verified!');
+//				throw ValidationException::withMessages(
+//					[
+//						'not_verified' => 'User is not verified!',
+//					]
+//				);
+			}
+			else
+			{
+				return redirect()->route('worldwide')->with('success', 'Welcome back!');
+			}
 		}
 		else
 		{
