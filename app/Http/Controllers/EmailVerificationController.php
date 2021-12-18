@@ -18,7 +18,7 @@ class EmailVerificationController extends Controller
 			{
 				$user->email_verified_at = Carbon::now();
 				$user->save();
-				return redirect()->route('verified')->with('success', 'Your email has been verified!');
+				return redirect()->route('login')->with('success', 'Your email has been verified!');
 			}
 			else
 			{

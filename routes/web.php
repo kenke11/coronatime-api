@@ -42,7 +42,3 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::get('/user/verify/{token}', [EmailVerificationController::class, 'verifyEmail'])->name('verified-email');
-
-Route::get('/confirmed-email', function () {
-	return view('auth.verified-email');
-})->name('verified');
