@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\User;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
@@ -28,14 +27,11 @@ class VerifyResetPassword extends Component
 			['email' => $this->email]
 		);
 
-//		$user = User::whereEmail($this->email)->first();
-//		$status = Password::sendResetLink($this->email);
-
 		if ($status === Password::RESET_LINK_SENT)
 		{
-			return  [
+			return redirect()->route('verification.notice')->with([
 				'status' => $status,
-			];
+			]);
 		}
 
 		throw ValidationException::withMessages(

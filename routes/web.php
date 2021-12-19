@@ -33,7 +33,7 @@ Route::middleware('guest')->group(function () {
 		return view('auth.register');
 	})->name('register');
 
-	Route::get('/confirm_email', function () {
+	Route::get('/confirm-email', function () {
 		return view('auth.verification-notice');
 	})->name('verification.notice');
 });

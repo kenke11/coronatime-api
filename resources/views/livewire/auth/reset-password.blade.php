@@ -16,9 +16,19 @@
                         method="POST"
                         class="space-y-6"
                         action="#">
+
+                        @if($errors->any())
+                            <ul>
+                                @foreach($errors as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+
+                        <input type="hidden" value="{{$this->token}}">
                         <input type="hidden" value="{{$this->token}}">
 
-                        <div class="space-y-1">
+                            <div class="space-y-1">
                             <label for="password" class="block text-sm font-semibold text-gray-900">
                                 Password
                             </label>

@@ -43,7 +43,6 @@ class ResetPasswordNotification extends Notification
 	 */
 	public function toMail($notifiable)
 	{
-		dd($notifiable);
 		return (new MailMessage)
 			->line('forgot pass?')
 			->action('click to reset', $this->url)
