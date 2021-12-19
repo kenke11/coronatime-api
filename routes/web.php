@@ -19,6 +19,16 @@ Route::middleware('guest')->group(function () {
 		return view('auth.login');
 	})->name('login');
 
+	Route::prefix('/forgot-password')->group(function () {
+		Route::get('/', function () {
+			return view('auth.verify-reset-password');
+		})->name('verify-reset-password');
+
+		Route::get('/reset-password/{token}', function ($token) {
+			return view('auth.reset-password', ['token' => $token]);
+		})->name('password.reset');
+	});
+
 	Route::get('/registration', function () {
 		return view('auth.register');
 	})->name('register');

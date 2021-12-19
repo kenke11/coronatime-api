@@ -29,11 +29,6 @@ class Login extends Component
 			{
 				auth()->logout();
 				$this->addError('not_verified', 'User is not verified!');
-//				throw ValidationException::withMessages(
-//					[
-//						'not_verified' => 'User is not verified!',
-//					]
-//				);
 			}
 			else
 			{

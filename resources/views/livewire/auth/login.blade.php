@@ -23,6 +23,9 @@
                             @error('not_verified')
                                 <p class="text-red-600 text-xs font-semibold">{{$message}}</p>
                             @enderror
+                            @error('not_login')
+                                <p class="text-red-600 text-xs font-semibold">{{$message}}</p>
+                            @enderror
                         </div>
                         <div class="mt-3">
                             <label for="username" class="block text-sm font-semibold text-gray-900">
@@ -34,7 +37,7 @@
                                     id="username"
                                     name="username"
                                     type="text"
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="@error('username') border-red-600 @enderror appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Enter unique username or email"
                                 >
                             </div>
@@ -61,7 +64,7 @@
                                     name="password"
                                     type="password"
                                     autocomplete="current-password"
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    class="@error('password') border-red-600 @enderror appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Fill in password"
                                 >
                             </div>
@@ -91,7 +94,7 @@
                             </div>
 
                             <div class="text-sm">
-                                <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">
+                                <a href="{{route('verify-reset-password')}}" class="font-semibold text-indigo-600 hover:text-indigo-500">
                                     Forgot your password?
                                 </a>
                             </div>
