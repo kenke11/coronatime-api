@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/dashboard');
+
 Route::middleware('guest')->group(function () {
 	Route::get('/login', function () {
 		return view('auth.login');
@@ -46,9 +48,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-	Route::get('/', function () {
+	Route::get('/dashboard', function () {
 		return view('worldwide');
-	})->name('worldwide');
+	})->name('dashboard');
 });
 
 Route::get('/user/verify/{token}', [EmailVerificationController::class, 'verifyEmail'])->name('verified-email');

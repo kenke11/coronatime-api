@@ -25,7 +25,7 @@ class RedirectIfAuthenticated
 		{
 			if (Auth::guard($guard)->check())
 			{
-				return redirect()->route('worldwire');
+				return redirect()->route('dashboard');
 			}
 		}
 
