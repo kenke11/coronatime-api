@@ -83,9 +83,11 @@
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <input
-                                    id="remember-me"
-                                    name="remember-me"
+                                    wire:model="remember_me"
+                                    id="remember_me"
+                                    name="remember_me"
                                     type="checkbox"
+                                    value="remember_me"
                                     class="h-4 w-4 text-green-500"
                                 >
                                 <label for="remember-me" class="ml-2 block font-semibold text-sm text-gray-900">

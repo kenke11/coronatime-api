@@ -11,6 +11,8 @@ class Login extends Component
 
 	public $password;
 
+	public $remember_me;
+
 	protected $rules = [
 		'username'    => 'required|min:3',
 		'password'    => 'required|min:3',
@@ -23,7 +25,7 @@ class Login extends Component
 
 	public function login()
 	{
-		if (auth()->attempt($this->validate()))
+		if (auth()->attempt($this->validate(), $this->remember_me))
 		{
 			if (auth()->user()->email_verified_at === null)
 			{
