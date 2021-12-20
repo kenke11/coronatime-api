@@ -24,7 +24,7 @@
                 </div>
                 <div class="text-center mt-12">
                     <a
-                        href="{{$url}}"
+                        href="{{route('password.reset', $token)}}"
                         class="bg-green-500 uppercase text-white font-semibold hover:bg-green-600 px-24 py-5 border-green-600 transition duration-150 rounded-xl cursor-pointer"
                     >RECOVER PASSWORD</a>
                 </div>

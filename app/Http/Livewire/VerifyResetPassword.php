@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use Illuminate\Support\Facades\Password;
-use Illuminate\Validation\ValidationException;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class VerifyResetPassword extends Component
@@ -11,7 +13,7 @@ class VerifyResetPassword extends Component
 	public $email;
 
 	protected $rules = [
-		'email' => 'required|email',
+		'email' => 'required|email|exists:users',
 	];
 
 	public function updated($propertyName)
@@ -22,23 +24,20 @@ class VerifyResetPassword extends Component
 	public function resetPassword()
 	{
 		$this->validate();
+		$token = Str::random(60);
 
-		$status = Password::sendResetLink(
-			['email' => $this->email]
-		);
+		DB::table('password_resets')->insert([
+			'email'      => $this->email,
+			'token'      => $token,
+			'created_at' => Carbon::now(),
+		]);
 
-		if ($status === Password::RESET_LINK_SENT)
-		{
-			return redirect()->route('verification.notice')->with([
-				'status' => $status,
-			]);
-		}
+		Mail::send('emails.resetPassword', ['token' => $token], function ($message) {
+			$message->to($this->email);
+			$message->subject('Reset password');
+		});
 
-		throw ValidationException::withMessages(
-			[
-				'email_not_exist' => 'This user does not exist',
-			]
-		);
+		return redirect()->route('verification.notice')->with('success', 'We have e-mailed your password reset link!');
 	}
 
 	public function render()

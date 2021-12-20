@@ -2,12 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use App\Rules\PasswordConfirmation;
-use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use Livewire\Component;
-use Illuminate\Support\Str;
 
 class ResetPassword extends Component
 {
@@ -35,34 +34,20 @@ class ResetPassword extends Component
 	{
 		$this->validate();
 
-		$request = [
-			'email'                 => 'admin@admin.com',
-			'password'              => $this->password,
-			'password_confirmation' => $this->password_confirmation,
-			'token'                 => $this->token,
-		];
-		$status = Password::reset(
-			$request,
-			function ($user, $password) {
-				$user->forceFill([
-					'password' => Hash::make($password),
-				])->setRememberToken(Str::random(60));
+		$updatePassword = DB::table('password_resets')
+			->where('token', $this->token)->first();
 
-				$user->save();
-
-				event(new PasswordReset($user));
-			}
-		);
-
-		if ($status === Password::PASSWORD_RESET)
+		if (!$updatePassword)
 		{
-			return redirect()->route('login')->with('status', $status);
+			return redirect()->route('login')->with('error', 'Invalid token!');
 		}
-		else
-		{
-			dd('ara');
-			return redirect()->route('login')->with(['error' => $status]);
-		}
+
+		$user = User::where('email', $updatePassword->email)
+			->update(['password' => Hash::make($this->password)]);
+
+		DB::table('password_resets')->where(['token'=> $this->token])->delete();
+
+		return redirect()->route('login')->with('message', 'Your password has been changed!');
 	}
 
 	public function render()
