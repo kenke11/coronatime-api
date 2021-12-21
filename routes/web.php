@@ -51,6 +51,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 	Route::get('/dashboard', function () {
 		return view('worldwide');
 	})->name('dashboard');
+
+	Route::get('/dashboard/by-country', function () {
+		return view('by-country');
+	})->name('by-country');
 });
 
 Route::get('/user/verify/{token}', [EmailVerificationController::class, 'verifyEmail'])->name('verified-email');

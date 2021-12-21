@@ -34,7 +34,7 @@ class Login extends Component
 			}
 			else
 			{
-				return redirect()->route('worldwide')->with('success', 'Welcome back!');
+				return redirect()->route('dashboard')->with('success', 'Welcome back!');
 			}
 		}
 		else
