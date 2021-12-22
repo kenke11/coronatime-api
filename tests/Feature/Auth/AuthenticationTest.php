@@ -90,4 +90,24 @@ class AuthenticationTest extends TestCase
 		$response = $this->get(route('dashboard'));
 		$response->assertRedirect(route('login'));
 	}
+
+	/**
+	 * @test
+	 */
+	public function user_login_form_validation_works()
+	{
+		Livewire::test(Login::class)
+			->set('username', ' ')
+			->call('login')
+			->set('username', 'wr')
+			->call('login')
+			->assertHasErrors('username');
+
+		Livewire::test(Login::class)
+			->set('password', ' ')
+			->call('login')
+			->set('password', 'wr')
+			->call('login')
+			->assertHasErrors('password');
+	}
 }

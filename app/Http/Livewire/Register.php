@@ -47,9 +47,7 @@ class Register extends Component
 
 		Mail::to($user->email)->send(new VerifyEmail($user));
 
-		session()->flash('success', 'Welcome to coronatime!');
-
-		return redirect()->route('verification.notice');
+		return redirect()->route('verification.notice')->with('success', 'Welcome to coronatime!');
 	}
 
 	public function render()
