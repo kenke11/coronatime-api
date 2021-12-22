@@ -26,6 +26,9 @@ class AuthenticationTest extends TestCase
 			->set('password', 'password')
 			->call('login')
 			->assertRedirect(route('dashboard'));
+
+		$response = $this->get(route('dashboard'));
+		$response->assertOk();
 	}
 
 	/**
@@ -38,21 +41,41 @@ class AuthenticationTest extends TestCase
 			'email_verified_at' => null,
 		]);
 
-		$response = Livewire::test(Login::class)
+		Livewire::test(Login::class)
 			->set('username', $user->username)
 			->set('password', 'password')
-			->call('login');
+			->call('login')
+			->assertHasErrors('not_verified');
 
-		if (empty($_SESSION['']))
-		{
-			$response->assertHasErrors('not_verified');
-		}
+		$response = $this->get(route('dashboard'));
+		$response->assertRedirect(route('login'));
 	}
 
 	/**
 	 * @test
 	 */
-	public function users_can_not_login()
+	public function user_login_with_remember_me()
+	{
+		// TODO
+		$user = User::factory()->create([
+			'username'    => 'davit',
+		]);
+
+		Livewire::test(Login::class)
+			->set('username', $user->username)
+			->set('password', 'password')
+			->set('remember_me', 'remember_me')
+			->call('login')
+			->assertRedirect(route('dashboard'));
+
+		$response = $this->get(route('dashboard'));
+		$response->assertOk();
+	}
+
+	/**
+	 * @test
+	 */
+	public function user_authentication_with_incorrect_username_or_password()
 	{
 		$user = User::factory()->create([
 			'username' => 'davit',
@@ -63,5 +86,8 @@ class AuthenticationTest extends TestCase
 			->set('password', 'wrong_password')
 			->call('login')
 			->assertHasErrors('not_login');
+
+		$response = $this->get(route('dashboard'));
+		$response->assertRedirect(route('login'));
 	}
 }
