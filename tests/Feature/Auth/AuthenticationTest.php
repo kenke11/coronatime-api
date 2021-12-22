@@ -15,6 +15,16 @@ class AuthenticationTest extends TestCase
 	/**
 	 * @test
 	 */
+	public function login_link_screen_can_be_rendered()
+	{
+		$response = $this->get(route('login'));
+
+		$response->assertOk();
+	}
+
+	/**
+	 * @test
+	 */
 	public function user_login_with_verified_email()
 	{
 		$user = User::factory()->create([

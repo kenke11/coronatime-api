@@ -15,6 +15,16 @@ class RegistrationTest extends TestCase
 	/**
 	 * @test
 	 */
+	public function registration_link_screen_can_be_rendered()
+	{
+		$response = $this->get(route('register'));
+
+		$response->assertOk();
+	}
+
+	/**
+	 * @test
+	 */
 	public function new_users_can_register()
 	{
 		// TODO
