@@ -52,8 +52,13 @@ class UpdateStatistic extends Command
 			{
 				$res = json_decode($response);
 
+				$translations = [
+					'en' => $country->name->en,
+					'ka' => $country->name->ka,
+				];
+
 				Country::updateOrCreate([
-					'country'   => $res->country,
+					'country'   => $translations,
 					'code'      => $res->code,
 					'confirmed' => $res->confirmed,
 					'recovered' => $res->recovered,

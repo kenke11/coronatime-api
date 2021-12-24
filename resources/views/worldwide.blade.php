@@ -6,10 +6,10 @@
                     <div class="flex-1 flex flex-col p-10">
                         <img class="w-24 self-center" src="{{asset('images/stats1.png')}}" alt="stats">
                         <div class="mt-6 font-semibold text-xl">
-                            New cases
+                            @lang('new_case')
                         </div>
                         <div class="text-4xl font-semibold text-blue-700 mt-4">
-                            715,523
+                            {{$new_case}}
                         </div>
                     </div>
                 </div>
@@ -20,10 +20,10 @@
                     <div class="flex-1 flex flex-col p-10">
                         <img class="w-24 self-center" src="{{asset('images/stats1.png')}}" alt="stats">
                         <div class="mt-6 font-semibold text-sm md:text-xl">
-                            New cases
+                            @lang('new_case')
                         </div>
                         <div class="text-2xl md:text-4xl font-semibold text-blue-700 mt-4">
-                            715,523
+                            {{$new_case}}
                         </div>
                     </div>
                 </div>
@@ -31,11 +31,11 @@
                 <div class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200 bg-green-100">
                     <div class="flex-1 flex flex-col p-10">
                         <img class="w-24 self-center" src="{{asset('images/stats2.png')}}" alt="stats">
-                        <div class="mt-6 font-semibold text-sm md:text-xl">
-                            Recovered
+                        <div class="mt-12 font-semibold text-sm md:text-xl">
+                            @lang('recovered')
                         </div>
                         <div class="text-2xl md:text-4xl font-semibold text-green-700 mt-4">
-                            72,005
+                            {{$recovered}}
                         </div>
                     </div>
                 </div>
@@ -43,16 +43,14 @@
                 <div class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200 bg-yellow-50">
                     <div class="flex-1 flex flex-col p-10">
                         <img class="w-24 self-center" src="{{asset('images/stats3.png')}}" alt="stats">
-                        <div class="mt-6 font-semibold text-sm md:text-xl">
-                            Death
+                        <div class="mt-12 font-semibold text-sm md:text-xl">
+                            @lang('deaths')
                         </div>
                         <div class="text-2xl md:text-4xl font-semibold text-yellow-300 mt-4">
-                            8,332
+                            {{$deaths}}
                         </div>
                     </div>
                 </div>
-
-                <!-- More people... -->
             </div>
         </div>
     </div>

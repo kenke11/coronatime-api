@@ -10,7 +10,7 @@
             name="search"
             id="search"
             class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-14 py-4 sm:text-sm border-gray-300 rounded-md"
-            placeholder="Search by country">
+            placeholder="@lang('search_by_country')">
     </div>
 
     <div class="my-10">
@@ -22,16 +22,16 @@
                             <thead class="bg-gray-100">
                             <tr class="font-semibold text-sm">
                                 <th scope="col" class="px-6 py-3 text-left font-medium tracking-wider">
-                                    Location
+                                    @lang('location')
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left font-medium tracking-wider">
-                                    New cases
+                                    @lang('new_case')
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left font-medium tracking-wider">
-                                    Deaths
+                                    @lang('deaths')
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left font-medium tracking-wider">
-                                    Recovered
+                                    @lang('recovered')
                                 </th>
                             </tr>
                             </thead>
