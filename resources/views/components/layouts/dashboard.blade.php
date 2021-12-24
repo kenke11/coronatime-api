@@ -73,7 +73,7 @@
                     <div class="hidden md:flex">
                         <div class="flex space-x-11 mr-4">
                             <div class="font-semibold">
-                                Tazo K.
+                                {{auth()->user()->username}}
                             </div>
                         </div>
                         <div class="pl-4 border-l-2">

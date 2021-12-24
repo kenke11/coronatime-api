@@ -36,37 +36,22 @@
                             </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200 text-sm overflow-y-auto ">
-                                <tr >
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        Worldwide
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        9,704,000
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        66,591
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        5,803,905
-                                    </td>
-                                </tr>
-
-                                @for($i = 1; $i < 15; $i++)
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                Worldwide
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                9,704,000
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                66,591
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                5,803,905
-                                            </td>
-                                        </tr>
-                                @endfor
+                                @foreach($countries as $country)
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{$country->country}}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{$country->confirmed}}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{$country->deaths}}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{$country->recovered}}
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </div>
                             </tbody>
                         </table>

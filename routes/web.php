@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmailVerificationController;
+use App\Models\Country;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,7 +54,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 	})->name('dashboard');
 
 	Route::get('/dashboard/by-country', function () {
-		return view('by-country');
+		$countries = Country::all();
+
+		return view('by-country', [
+			'countries' => $countries,
+		]);
 	})->name('by-country');
 });
 
