@@ -48,24 +48,26 @@ class UpdateStatistic extends Command
 			$response = Http::asForm()->post('https://devtest.ge/get-country-statistics', [
 				'code' => $country->code,
 			]);
-			if ($response->successful())
-			{
-				$res = json_decode($response);
+			sleep(2);
+			$res = json_decode($response);
 
-				$translations = [
-					'en' => $country->name->en,
-					'ka' => $country->name->ka,
-				];
+			$translations = [
+				'en' => $country->name->en,
+				'ka' => $country->name->ka,
+			];
 
-				Country::updateOrCreate([
-					'country'   => $translations,
+			Country::updateOrCreate(
+				[
 					'code'      => $res->code,
+				],
+				[
+					'country'   => $translations,
 					'confirmed' => $res->confirmed,
 					'recovered' => $res->recovered,
 					'critical'  => $res->critical,
 					'deaths'    => $res->deaths,
-				]);
-			}
+				]
+			);
 		}
 		return 'success';
 	}

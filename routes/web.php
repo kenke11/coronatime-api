@@ -75,11 +75,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 	})->name('dashboard');
 
 	Route::get('/dashboard/by-country', function () {
-		$countries = Country::all();
-
-		return view('by-country', [
-			'countries' => $countries,
-		]);
+		return view('by-country');
 	})->name('by-country');
 });
 
