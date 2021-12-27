@@ -13,7 +13,6 @@
 <body>
 
     <header>
-    <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="relative bg-white border-b-2 border-gray-100">
         <div class="px-6 px-4 md:px-28">
             <div
@@ -55,14 +54,40 @@
                             </div>
                         </div>
                     </div>
-                    <div class="-mr-2 -my-2 md:hidden transform rotate-180">
-                        <button type="button"
-                                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    <div
+                        x-data="{menuOpen: false}"
+                        class="-mr-2 -my-2 md:hidden">
+                        <button
+                            @click="menuOpen = true"
+                            type="button"
+                                class="transform rotate-180 bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 focus:outline-none"
                                 aria-expanded="false">
                             <svg class="h-6 w-6 text-gray-700" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
                             </svg>
                         </button>
+
+                        <div
+                            class="absolute border border-gray-200 rounded-md mt-3 bg-gray-100 py-3 px-2 -ml-10 mr-3"
+                            x-show="menuOpen"
+                            @click.away="menuOpen = false"
+                            @keydown.escape.window="menuOpen = false"
+                            x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 transform scale-90"
+                            x-transition:enter-end="opacity-100 transform scale-100"
+                            x-transition:leave="transition ease-in duration-300"
+                            x-transition:leave-start="opacity-100 transform scale-100"
+                            x-transition:leave-end="opacity-0 transform scale-90"
+                        >
+                            <div class="py-1 px-2 text-sm flex flex-col items-center">
+                                <div class="font-semibold py-1">
+                                    {{auth()->user()->username}}
+                                </div>
+                                <div class="mt-1 border-t py-1">
+                                    <a href="{{route('logout')}}">@lang('log_out')</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="hidden md:flex">
