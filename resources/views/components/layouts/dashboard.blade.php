@@ -50,13 +50,12 @@
                             x-transition:leave-end="opacity-0 transform scale-90"
                         >
                             <div class="py-1 text-sm">
-                                <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                                 <a href="{{route('lang', 'ka')}}" class="text-gray-700 block px-6 py-2 hover:bg-gray-200">@lang('georgian')</a>
                                 <a href="{{route('lang', 'en')}}" class="text-gray-700 block px-6 py-2 hover:bg-gray-200">@lang('english')</a>
                             </div>
                         </div>
                     </div>
-                    <div class="-mr-2 -my-2 md:hidden">
+                    <div class="-mr-2 -my-2 md:hidden transform rotate-180">
                         <button type="button"
                                 class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                                 aria-expanded="false">
@@ -84,10 +83,10 @@
 
     <nav class="mx-4 md:mx-28">
         <div class="my-4 md:my-10">
-            <h2 class="font-semibold text-2xl">@lang('worldwide_statistics')</h2>
+            <h2 class="font-semibold text-xl md:text-2xl">@lang('worldwide_statistics')</h2>
         </div>
         <div>
-            <div class="flex space-x-6 md:space-x-20 border-b border-gray-300">
+            <div class="flex space-x-6 md:space-x-20 border-b border-gray-300 text-sm md:text-md">
                 <a href="{{route('dashboard')}}" class="@if(request()->url() === route('dashboard')) font-semibold border-gray-900 @else border-opacity-0 @endif border-b-4 hover:border-gray-900 transition duration-150">@lang('worldwide')</a>
                 <a href="{{route('by-country')}}" class="@if(request()->url() === route('by-country')) font-semibold border-gray-900 @else border-opacity-0 @endif pb-4 border-b-4 hover:border-gray-900 transition duration-150">@lang('by_country')</a>
             </div>

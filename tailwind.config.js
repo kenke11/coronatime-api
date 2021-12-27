@@ -3,7 +3,11 @@ module.exports = {
     purge: [],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            spacing: {
+                150: '37.6rem'
+            }
+        },
     },
     variants: {
         extend: {},
