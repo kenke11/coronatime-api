@@ -18,49 +18,77 @@
     <div class="my-10">
         <div class="w-screen-max overflow-x-auto rounded-md text-xs md:text-sm border border-gray-100">
             <div class="grid grid-cols-4 gap-4  bg-gray-100 py-5 pl-4 md:pl-10 font-semibold">
-                <div class="flex items-center">
-                    @lang('location')
-                    <div class="ml-2">
-                        <div class="mb-0.5">
-                            <img src="{{asset('images/up.png')}}" >
-                        </div>
-                        <div>
-                            <img src="{{asset('images/down.png')}}" >
-                        </div>
-                    </div>
+                <div class="">
+                    <form wire:submit.prevent="location">
+                        <button
+                            type="submit"
+                            class="cursor-pointer flex items-center self-start"
+                        >
+                            <span class="font-semibold">@lang('location')</span>
+                            <div class="ml-1">
+                                <div class="mb-0.5">
+                                    <img src="{{asset('images/up.png')}}" >
+                                </div>
+                                <div>
+                                    <img src="{{asset('images/down.png')}}" class="">
+                                </div>
+                            </div>
+                        </button>
+                    </form>
                 </div>
-                <div class="flex items-center">
-                    @lang('new_case')
-                    <div class="ml-2">
-                        <div class="mb-0.5">
-                            <img src="{{asset('images/up.png')}}" >
-                        </div>
-                        <div>
-                            <img src="{{asset('images/down.png')}}" >
-                        </div>
-                    </div>
+                <div class="">
+                    <form wire:submit.prevent="newCase">
+                        <button
+                            type="submit"
+                            class="-ml-0.5 cursor-pointer flex items-center self-start"
+                        >
+                            <span class="font-semibold">@lang('new_case')</span>
+                            <div class="ml-1">
+                                <div class="mb-0.5">
+                                    <img src="{{asset('images/up.png')}}" >
+                                </div>
+                                <div>
+                                    <img src="{{asset('images/down.png')}}" class="">
+                                </div>
+                            </div>
+                        </button>
+                    </form>
                 </div>
-                <div class="flex items-center">
-                    @lang('deaths')
-                    <div class="ml-2">
-                        <div class="mb-0.5">
-                            <img src="{{asset('images/up.png')}}" >
-                        </div>
-                        <div>
-                            <img src="{{asset('images/down.png')}}" >
-                        </div>
-                    </div>
+                <div class="">
+                    <form wire:submit.prevent="deaths">
+                        <button
+                            type="submit"
+                            class="-ml-1.5 cursor-pointer flex items-center self-start"
+                        >
+                            <span class="font-semibold">@lang('deaths')</span>
+                            <div class="ml-1">
+                                <div class="mb-0.5">
+                                    <img src="{{asset('images/up.png')}}" >
+                                </div>
+                                <div>
+                                    <img src="{{asset('images/down.png')}}" class="">
+                                </div>
+                            </div>
+                        </button>
+                    </form>
                 </div>
-                <div class="flex items-center">
-                    @lang('recovered')
-                    <div class="ml-2">
-                        <div class="mb-0.5">
-                            <img src="{{asset('images/up.png')}}" >
-                        </div>
-                        <div>
-                            <img src="{{asset('images/down.png')}}" >
-                        </div>
-                    </div>
+                <div class="">
+                    <form wire:submit.prevent="recovered">
+                        <button
+                            type="submit"
+                            class="-ml-3 cursor-pointer flex items-center self-start"
+                        >
+                            <span class="font-semibold">@lang('recovered')</span>
+                            <div class="ml-1">
+                                <div class="mb-0.5">
+                                    <img src="{{asset('images/up.png')}}" >
+                                </div>
+                                <div>
+                                    <img src="{{asset('images/down.png')}}" class="">
+                                </div>
+                            </div>
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="overflow-y-auto max-h-150">

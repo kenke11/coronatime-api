@@ -9,14 +9,126 @@ class Statistics extends Component
 {
 	public $search;
 
+	public $location = false;
+
+	public $locationSort = 'ASC';
+
+	public $locationChecked = true;
+
+	public $newCase = false;
+
+	public $newCaseSort = 'ASC';
+
+	public $newCaseChecked = true;
+
+	public $deaths = false;
+
+	public $deathsSort = 'ASC';
+
+	public $deathsChecked = true;
+
+	public $recovered = false;
+
+	public $recoveredSort = 'ASC';
+
+	public $recoveredChecked = true;
+
 	protected $queryString = [
 		'search',
 	];
+
+	public function location()
+	{
+		$this->location = true;
+		$this->newCase = false;
+		$this->deaths = false;
+		$this->recovered = false;
+
+		if ($this->locationChecked)
+		{
+			$this->locationSort = 'ASC';
+			$this->locationChecked = false;
+		}
+		elseif (!$this->locationChecked)
+		{
+			$this->locationSort = 'DESC';
+			$this->locationChecked = true;
+		}
+	}
+
+	public function newCase()
+	{
+		$this->newCase = true;
+		$this->location = false;
+		$this->deaths = false;
+		$this->recovered = false;
+
+		if ($this->newCaseChecked)
+		{
+			$this->newCaseSort = 'ASC';
+			$this->newCaseChecked = false;
+		}
+		elseif (!$this->newCaseChecked)
+		{
+			$this->newCaseSort = 'DESC';
+			$this->newCaseChecked = true;
+		}
+	}
+
+	public function deaths()
+	{
+		$this->newCase = false;
+		$this->location = false;
+		$this->deaths = true;
+		$this->recovered = false;
+
+		if ($this->deathsChecked)
+		{
+			$this->deathsSort = 'ASC';
+			$this->deathsChecked = false;
+		}
+		elseif (!$this->deathsChecked)
+		{
+			$this->deathsSort = 'DESC';
+			$this->deathsChecked = true;
+		}
+	}
+
+	public function recovered()
+	{
+		$this->newCase = false;
+		$this->location = false;
+		$this->deaths = false;
+		$this->recovered = true;
+
+		if ($this->recoveredChecked)
+		{
+			$this->recoveredSort = 'ASC';
+			$this->recoveredChecked = false;
+		}
+		elseif (!$this->recoveredChecked)
+		{
+			$this->recoveredSort = 'DESC';
+			$this->recoveredChecked = true;
+		}
+	}
 
 	public function render()
 	{
 		return view('livewire.statistics', [
 			'countries' => Country::search($this->search)
+				->when($this->location, function ($query) {
+					return $query->orderBy('country', $this->locationSort);
+				})
+				->when($this->newCase, function ($query) {
+					return $query->orderBy('confirmed', $this->newCaseSort);
+				})
+				->when($this->deaths, function ($query) {
+					return $query->orderBy('deaths', $this->deathsSort);
+				})
+				->when($this->recovered, function ($query) {
+					return $query->orderBy('recovered', $this->recoveredSort);
+				})
 				->get(),
 		]);
 	}
