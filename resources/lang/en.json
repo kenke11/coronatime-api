@@ -10,5 +10,6 @@
     "new_case": "New cases",
     "deaths": "Deaths",
     "recovered": "Recovered",
-    "worldwide_statistics": "Worldwide Statistics"
+    "worldwide_statistics": "Worldwide Statistics",
+    "countries_not_found": "Countries not found"
 }

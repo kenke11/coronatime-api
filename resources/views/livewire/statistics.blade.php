@@ -92,14 +92,18 @@
                 </div>
             </div>
             <div class="overflow-y-auto max-h-150">
-                @foreach($countries as $country)
+                @forelse($countries as $country)
                     <div class="grid grid-cols-4 gap-4  py-5 pl-4 md:pl-10 border-b border-gray-100">
                         <div>{{$country->country}}</div>
                         <div>{{$country->confirmed}}</div>
                         <div>{{$country->deaths}}</div>
                         <div>{{$country->recovered}}</div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="px-5 md:px-10 py-5 text-gray-400">
+                        @lang('countries_not_found')
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>

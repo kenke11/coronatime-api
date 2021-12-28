@@ -22,7 +22,7 @@ class EmailVerificationController extends Controller
 			}
 			else
 			{
-				return redirect()->back()->with('info', 'Your email has already been verified');
+				return redirect()->route('dashboard')->with('info', 'Your email has already been verified');
 			}
 		}
 		else

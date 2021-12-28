@@ -27,17 +27,15 @@ class RegistrationTest extends TestCase
 	 */
 	public function new_users_can_register()
 	{
-		// TODO
 		Mail::fake();
-
-		Mail::assertNothingSent();
 
 		Livewire::test(Register::class)
 			->set('username', 'Jhon')
 			->set('email', 'jhon@example.com')
 			->set('password', 'password')
 			->set('password', 'password')
-			->call('createUser');
+			->call('createUser')
+			->assertRedirect('verification.notice');
 	}
 
 	/**

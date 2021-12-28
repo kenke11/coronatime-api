@@ -10,5 +10,6 @@
     "new_case": "ახალი შემთხვევები",
     "deaths": "გარდაცვლილი",
     "recovered": "გამოჯამთელებული",
-    "worldwide_statistics": "სტატისტიკა მსოფლიონს მაშტაბით"
+    "worldwide_statistics": "სტატისტიკა მსოფლიონს მაშტაბით",
+    "countries_not_found": "ქვეყნები ვერ მოიძებნა"
 }

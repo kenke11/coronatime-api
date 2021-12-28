@@ -7,26 +7,72 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <style>
+        .container{
+            min-height: 100vh;
+        }
+
+        .img-box{
+            width: 75%;
+            margin: 0 auto;
+        }
+
+        .img-box img{
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .link-box{
+
+        }
+
+        .link-header{
+            margin-top: 58px;
+        }
+
+        .link-header p, .link-header h1{
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .link-footer{
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .button{
+            margin: 0 auto;
+            background: #0FBA68;
+        }
+        .button:hover{
+            background: #0f9a56;
+        }
+        .button span{
+            margin: 0 auto;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
-    <div class="min-h-screen flex flex-col ">
-        <div class="flex justify-center mt-12">
+    <div class="container">
+        <div class="img-box">
             <img
-                class="w-7/12"
                 src="{{asset('images/LandingWorldwide.png')}}" alt="">
         </div>
         <div>
-            <div class="flex justify-center mt-12">
+            <div class="link-box">
                 <div>
-                    <div class="text-center flex flex-col justify-center">
-                        <h1 class="text-xl font-semibold">Confirmation email</h1>
-                        <p class="text-sm">click this button to verify your email</p>
+                    <div class="link-header">
+                        <h1 style="margin-top: 16px">Confirmation email</h1>
+                        <p style="margin-top: 16px">click this button to verify your email</p>
                     </div>
-                    <div class="text-center mt-12">
+                    <div class="link-footer">
                         <a
+                            style="padding-top: 19px; padding-bottom: 19px; width: 100%; margin-top: 59px; "
                             href="{{route('verified-email', $user->email_verified_token)}}"
-                            class="bg-green-500 uppercase text-white font-semibold hover:bg-green-600 px-24 py-5 border-green-600 transition duration-150 rounded-xl cursor-pointer"
-                        >VERIFY EMAIL</a>
+                            class="button"
+                        ><span style="margin: 0 auto;">VERIFY EMAIL</span></a>
                     </div>
                 </div>
             </div>
