@@ -35,11 +35,11 @@ Route::middleware('guest')->group(function () {
 		Route::get('/reset-password/{token}', function ($token) {
 			return view('auth.reset-password', ['token' => $token]);
 		})->name('password.reset');
-
-		Route::get('/password-changed', function () {
-			return view('reset-password-notification.blade');
-		})->name('password-changed');
 	});
+	//    TODO
+//	Route::get('/password-changed', function () {
+//		return view('reset-password-notification.blade');
+//	})->name('password-changed');
 
 	Route::get('/registration', function () {
 		return view('auth.register');

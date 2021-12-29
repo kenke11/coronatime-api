@@ -47,7 +47,7 @@ class ResetPassword extends Component
 
 		DB::table('password_resets')->where(['token'=> $this->token])->delete();
 
-		return redirect()->route('password-changed');
+		return redirect()->route('login');
 	}
 
 	public function render()
