@@ -37,8 +37,8 @@ Route::middleware('guest')->group(function () {
 		})->name('password.reset');
 
 		Route::get('/password-changed', function () {
-			return view('auth.reset-password-notification');
-		})->name('reset-password.success.notice');
+			return view('reset-password-notification.blade');
+		})->name('password-changed');
 	});
 
 	Route::get('/registration', function () {

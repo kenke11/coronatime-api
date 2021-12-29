@@ -47,7 +47,7 @@ class ResetPassword extends Component
 
 		DB::table('password_resets')->where(['token'=> $this->token])->delete();
 
-		return redirect()->route('reset-password.success.notice')->with('message', 'Your password has been changed!');
+		return redirect()->route('password-changed');
 	}
 
 	public function render()
