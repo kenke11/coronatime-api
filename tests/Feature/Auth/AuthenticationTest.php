@@ -43,6 +43,9 @@ class AuthenticationTest extends TestCase
 			->call('login')
 			->assertRedirect(route('dashboard'));
 
+		$response = $this->get(route('dashboard'));
+		$response->assertOk();
+
 		Livewire::test(Login::class)
 			->set('username', $userB->email)
 			->set('password', 'password')
