@@ -6,27 +6,67 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            min-height: 100vh;
+        }
+
+        .img-box{
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .img-box img{
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .link-box{
+
+        }
+
+        .link-header{
+            margin-top: 58px;
+        }
+
+        .link-header p, .link-header h1{
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+
+        .button:hover{
+            background: #0f9a56;
+        }
+        .button span{
+            margin: 0 auto;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
-<div class="min-h-screen flex flex-col ">
-    <div class="flex justify-center mt-12">
+<div class="container">
+    <div class="img-box">
         <img
-            class="w-7/12"
             src="{{asset('images/LandingWorldwide.png')}}" alt="">
     </div>
     <div>
-        <div class="flex justify-center mt-12">
+        <div class="link-box">
             <div>
-                <div class="text-center flex flex-col justify-center">
-                    <h1 class="text-xl font-semibold">Recover password</h1>
-                    <p class="text-sm">click this button to recover a password</p>
+                <div class="link-header">
+                    <h1 style="margin-top: 16px; font-size: 25px">Recover password</h1>
+                    <p style="margin-top: 16px; margin-bottom: 59px">click this button to recover a password</p>
                 </div>
-                <div class="text-center mt-12">
-                    <a
-                        href="{{route('password.reset', $token)}}"
-                        class="bg-green-500 uppercase text-white font-semibold hover:bg-green-600 px-24 py-5 border-green-600 transition duration-150 rounded-xl cursor-pointer"
-                    >RECOVER PASSWORD</a>
+                <div style="margin: 0 auto; width: 20%;">
+                    <a  href="{{route('password.reset', $token)}}" class="button" style="background: #0FBA68; padding: 19px 33%; border-radius: 10px; color: white; font-weight: bold; text-decoration: none; margin: 0 auto">
+                        <span>RECOVER<span style="color: #0FBA68">_</span>PASSWORD</span>
+                    </a>
                 </div>
             </div>
         </div>
