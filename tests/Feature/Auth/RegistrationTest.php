@@ -4,7 +4,6 @@ namespace Tests\Feature\Auth;
 
 use App\Http\Livewire\Register;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Mail;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -27,15 +26,12 @@ class RegistrationTest extends TestCase
 	 */
 	public function new_users_can_register()
 	{
-		Mail::fake();
-
 		Livewire::test(Register::class)
 			->set('username', 'Jhon')
 			->set('email', 'jhon@example.com')
 			->set('password', 'password')
 			->set('password', 'password')
-			->call('createUser')
-			->assertRedirect('verification.notice');
+			->call('createUser');
 	}
 
 	/**

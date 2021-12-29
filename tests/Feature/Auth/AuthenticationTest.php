@@ -27,12 +27,24 @@ class AuthenticationTest extends TestCase
 	 */
 	public function user_login_with_verified_email()
 	{
-		$user = User::factory()->create([
+		$userA = User::factory()->create([
 			'username' => 'davit',
+			'email'    => 'davit@gmail.com',
+		]);
+
+		$userB = User::factory()->create([
+			'username' => 'nika',
+			'email'    => 'nika@gmail.com',
 		]);
 
 		Livewire::test(Login::class)
-			->set('username', $user->username)
+			->set('username', $userA->username)
+			->set('password', 'password')
+			->call('login')
+			->assertRedirect(route('dashboard'));
+
+		Livewire::test(Login::class)
+			->set('username', $userB->email)
 			->set('password', 'password')
 			->call('login')
 			->assertRedirect(route('dashboard'));

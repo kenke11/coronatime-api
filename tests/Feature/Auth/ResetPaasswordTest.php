@@ -21,6 +21,13 @@ class ResetPaasswordTest extends TestCase
 	/**
 	 * @test
 	 */
+	public function verify_user_with_email()
+	{
+	}
+
+	/**
+	 * @test
+	 */
 	public function email_sending_form_validation()
 	{
 		Livewire::test(VerifyResetPassword::class)

@@ -25,7 +25,7 @@ class Login extends Component
 
 	public function login()
 	{
-		if (auth()->attempt($this->validate(), $this->remember_me))
+		if (auth()->attempt(['email' => $this->username, 'password' => $this->password], $this->remember_me) || auth()->attempt(['username' => $this->username, 'password' => $this->password], $this->remember_me))
 		{
 			if (auth()->user()->email_verified_at === null)
 			{
