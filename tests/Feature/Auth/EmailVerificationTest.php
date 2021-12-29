@@ -15,6 +15,21 @@ class EmailVerificationTest extends TestCase
 	/**
 	 * @test
 	 */
+	public function user_when_clicked_email_verification_button_form_email()
+	{
+		$user = User::factory()->create([
+			'email'             => 'tomy@gmail.com',
+			'email_verified_at' => null,
+		]);
+
+		$response = $this->get(route('verified-email', $user->email_verified_token));
+
+		$response->assertRedirect(route('login'));
+	}
+
+	/**
+	 * @test
+	 */
 	public function user_when_confirming_verification()
 	{
 		$user = User::factory()->create([

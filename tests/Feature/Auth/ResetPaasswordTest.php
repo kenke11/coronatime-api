@@ -61,13 +61,11 @@ class ResetPaasswordTest extends TestCase
 	/**
 	 * @test
 	 */
-	public function user_when_clicked_email_verification_button_from_email()
+	public function user_when_clicked_reset_password_button_from_email()
 	{
 		$user = User::factory()->create([
 			'email'             => 'tomy@gmail.com',
 		]);
-
-		$response = $this->get(route('password.reset', $user->email_verified_token));
 
 		$token = Str::random(60);
 
@@ -76,6 +74,11 @@ class ResetPaasswordTest extends TestCase
 			'token'      => $token,
 			'created_at' => Carbon::now(),
 		]);
+
+		$updatePassword = DB::table('password_resets')
+			->where('email', $user->email)->first();
+
+		$response = $this->get(route('password.reset', $updatePassword->token));
 
 		$response->assertOk();
 	}
