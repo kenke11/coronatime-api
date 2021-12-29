@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class ResetPaasswordTest extends TestCase
+class ResetPasswordTest extends TestCase
 {
 	use RefreshDatabase;
 
