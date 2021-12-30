@@ -9,27 +9,27 @@ class Statistics extends Component
 {
 	public $search;
 
-	public $location = false;
+	public $location = true;
 
 	public $locationSort = 'ASC';
 
-	public $locationChecked = true;
+	public $locationChecked = false;
 
 	public $newCase = false;
 
-	public $newCaseSort = 'ASC';
+	public $newCaseSort;
 
 	public $newCaseChecked = true;
 
 	public $deaths = false;
 
-	public $deathsSort = 'ASC';
+	public $deathsSort;
 
 	public $deathsChecked = true;
 
 	public $recovered = false;
 
-	public $recoveredSort = 'ASC';
+	public $recoveredSort;
 
 	public $recoveredChecked = true;
 
@@ -54,6 +54,10 @@ class Statistics extends Component
 			$this->locationSort = 'DESC';
 			$this->locationChecked = true;
 		}
+
+		$this->deathsSort = null;
+		$this->newCaseSort = null;
+		$this->recoveredSort = null;
 	}
 
 	public function newCase()
@@ -73,6 +77,10 @@ class Statistics extends Component
 			$this->newCaseSort = 'DESC';
 			$this->newCaseChecked = true;
 		}
+
+		$this->locationSort = null;
+		$this->deathsSort = null;
+		$this->recoveredSort = null;
 	}
 
 	public function deaths()
@@ -92,6 +100,10 @@ class Statistics extends Component
 			$this->deathsSort = 'DESC';
 			$this->deathsChecked = true;
 		}
+
+		$this->newCaseSort = null;
+		$this->locationSort = null;
+		$this->recoveredSort = null;
 	}
 
 	public function recovered()
@@ -111,6 +123,10 @@ class Statistics extends Component
 			$this->recoveredSort = 'DESC';
 			$this->recoveredChecked = true;
 		}
+
+		$this->newCaseSort = null;
+		$this->locationSort = null;
+		$this->deathsSort = null;
 	}
 
 	public function render()
@@ -130,6 +146,10 @@ class Statistics extends Component
 					return $query->orderBy('recovered', $this->recoveredSort);
 				})
 				->get(),
+			'locationSort'  => $this->locationSort,
+			'newCaseSort'   => $this->newCaseSort,
+			'deathsSort'    => $this->deathsSort,
+			'recoveredSort' => $this->recoveredSort,
 		]);
 	}
 }

@@ -26,11 +26,11 @@
                         >
                             <span class="font-semibold">@lang('location')</span>
                             <div class="ml-1">
-                                <div class="mb-0.5">
-                                    <img src="{{asset('images/up.png')}}" >
+                                <div class="mb-0.5 transform rotate-180  opacity-25 @if($locationSort == 'DESC') opacity-100 @endif">
+                                    <img src="{{asset('images/vector.png')}}" >
                                 </div>
-                                <div>
-                                    <img src="{{asset('images/down.png')}}" class="">
+                                <div class="opacity-25 @if($locationSort == 'ASC') opacity-100 @endif">
+                                    <img src="{{asset('images/vector.png')}}" >
                                 </div>
                             </div>
                         </button>
@@ -44,11 +44,11 @@
                         >
                             <span class="font-semibold">@lang('new_case')</span>
                             <div class="ml-1">
-                                <div class="mb-0.5">
-                                    <img src="{{asset('images/up.png')}}" >
+                                <div class="mb-0.5 transform rotate-180  opacity-25 @if($newCaseSort == 'DESC') opacity-100 @endif">
+                                    <img src="{{asset('images/vector.png')}}" >
                                 </div>
-                                <div>
-                                    <img src="{{asset('images/down.png')}}" class="">
+                                <div class="opacity-25 @if($newCaseSort == 'ASC') opacity-100 @endif">
+                                    <img src="{{asset('images/vector.png')}}" >
                                 </div>
                             </div>
                         </button>
@@ -62,11 +62,11 @@
                         >
                             <span class="font-semibold">@lang('deaths')</span>
                             <div class="ml-1">
-                                <div class="mb-0.5">
-                                    <img src="{{asset('images/up.png')}}" >
+                                <div class="mb-0.5 transform rotate-180  opacity-25 @if($deathsSort == 'DESC') opacity-100 @endif">
+                                    <img src="{{asset('images/vector.png')}}" >
                                 </div>
-                                <div>
-                                    <img src="{{asset('images/down.png')}}" class="">
+                                <div class="opacity-25 @if($deathsSort == 'ASC') opacity-100 @endif">
+                                    <img src="{{asset('images/vector.png')}}" >
                                 </div>
                             </div>
                         </button>
@@ -80,11 +80,11 @@
                         >
                             <span class="font-semibold">@lang('recovered')</span>
                             <div class="ml-1">
-                                <div class="mb-0.5">
-                                    <img src="{{asset('images/up.png')}}" >
+                                <div class="mb-0.5  transform rotate-180 opacity-25 @if($recoveredSort == 'DESC') opacity-100 @endif">
+                                    <img src="{{asset('images/vector.png')}}" >
                                 </div>
-                                <div>
-                                    <img src="{{asset('images/down.png')}}" class="">
+                                <div class="opacity-25 @if($recoveredSort == 'ASC') opacity-100 @endif">
+                                    <img src="{{asset('images/vector.png')}}" >
                                 </div>
                             </div>
                         </button>
