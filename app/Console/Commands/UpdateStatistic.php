@@ -39,13 +39,13 @@ class UpdateStatistic extends Command
 	 */
 	public function handle()
 	{
-		$file = file_get_contents('https://devtest.ge/countries');
+		$file = Http::get('https://devtest.ge/countries');
 
 		$data = json_decode($file);
 
 		foreach ($data as $country)
 		{
-			$response = Http::asForm()->post('https://devtest.ge/get-country-statistics', [
+			$response = Http::post('https://devtest.ge/get-country-statistics', [
 				'code' => $country->code,
 			]);
 			sleep(2);
