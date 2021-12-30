@@ -38,9 +38,27 @@ class EmailVerificationTest extends TestCase
 
 		Event::fake();
 
-		$this->get(route('verified-email', $user->email_verified_token));
+		$response = $this->get(route('verified-email', $user->email_verified_token));
 
 		$this->assertTrue($user->fresh()->hasVerifiedEmail());
+
+		$response->assertRedirect(route('login'))->assertSessionHas('success');
+	}
+
+	/**
+	 * @test
+	 */
+	public function user_target_verification_link_when_already_verification()
+	{
+		$user = User::factory()->create([
+			'email_verified_at' => now(),
+		]);
+
+		Event::fake();
+
+		$response = $this->get(route('verified-email', $user->email_verified_token));
+
+		$response->assertRedirect(route('login'))->assertSessionHas('info');
 	}
 
 	/**

@@ -13,7 +13,7 @@ class CostumeCommandTest extends TestCase
 	/**
 	 * @test
 	 */
-	public function get_countries_and_decode_with_json()
+	public function get_countries_and_post_them_with_database()
 	{
 		Http::fake([
 			'https://devtest.ge/countries' => Http::response(
