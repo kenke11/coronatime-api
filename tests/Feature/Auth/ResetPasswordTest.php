@@ -86,6 +86,33 @@ class ResetPasswordTest extends TestCase
 	/**
 	 * @test
 	 */
+	public function user_when_reseting_password_with_invalid_token()
+	{
+		$user = User::factory()->create([
+			'email'             => 'tomy@gmail.com',
+		]);
+
+		$invalidToken = Str::random(64);
+		$token = Str::random(60);
+
+		DB::table('password_resets')->insert([
+			'email'      => $user->email,
+			'token'      => $token,
+			'created_at' => Carbon::now(),
+		]);
+
+		Livewire::test(ResetPassword::class)
+			->set('token', $invalidToken)
+			->set('password', 'rame123')
+			->set('password_confirmation', 'rame123')
+			->call('resetPassword')
+			->assertRedirect('login')
+			->assertSessionHas('error');
+	}
+
+	/**
+	 * @test
+	 */
 	public function password_reset_success()
 	{
 		$user = User::factory()->create([
