@@ -1,4 +1,12 @@
 <div class="min-h-screen flex">
+
+    <div
+        class="fixed top-0 h-1 bg-green-500 z-10 w-full animate-pulse"
+                wire:loading
+                wire:target="createUser"
+    >
+    </div>
+
     <div class="flex-1 flex flex-col w-7/12 justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div class="mx-auto w-full max-w-sm lg:w-96">
             <div>

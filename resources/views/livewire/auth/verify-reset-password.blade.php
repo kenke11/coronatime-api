@@ -1,4 +1,11 @@
 <div class="min-h-screen flex flex-col ">
+    <div
+        class="fixed top-0 h-1 bg-green-500 z-10 w-full animate-pulse"
+        wire:loading
+        wire:target="resetPassword"
+    >
+
+    </div>
     <div class="flex justify-center mt-16">
         <img src="{{asset('images/logo.png')}}" alt="logo">
     </div>

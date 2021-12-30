@@ -46,9 +46,7 @@ class Register extends Component
 			'password'             => bcrypt($this->password),
 		]);
 
-		Mail::to($user->email)->send(new VerifyEmail($user));
-		// TODO
-//		NotifyRegister::dispatch($user);
+		NotifyRegister::dispatch($user);
 
 		return redirect()->route('verification.notice')->with('success', 'Welcome to coronatime!');
 	}
