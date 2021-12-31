@@ -25,10 +25,6 @@ Route::middleware('guest')->group(function () {
 			return view('auth.reset-password', ['token' => $token]);
 		})->name('password.reset');
 	});
-	//    TODO
-//	Route::get('/password-changed', function () {
-//		return view('reset-password-notification.blade');
-//	})->name('password-changed');
 
 	Route::get('/registration', function () {
 		return view('auth.register');

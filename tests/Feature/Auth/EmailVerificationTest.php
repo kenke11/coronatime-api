@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Mail\VerifyEmail;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
@@ -11,6 +12,19 @@ use Tests\TestCase;
 class EmailVerificationTest extends TestCase
 {
 	use RefreshDatabase;
+
+	/**
+	 * @test
+	 */
+	public function mailable_content()
+	{
+		$user = User::factory()->create();
+
+		$mailable = new VerifyEmail($user);
+
+		$mailable->assertSeeInHtml($user->email_verified_token);
+		$mailable->assertSeeInHtml('Confirmation email');
+	}
 
 	/**
 	 * @test
