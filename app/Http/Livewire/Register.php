@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Jobs\NotifyRegister;
 use App\Mail\VerifyEmail;
 use App\Models\User;
 use App\Rules\PasswordConfirmation;
@@ -47,8 +46,6 @@ class Register extends Component
 		]);
 
 		Mail::to($user->email)->send(new VerifyEmail($user));
-		// TODO
-//		NotifyRegister::dispatch($user);
 
 		return redirect()->route('verification.notice')->with('success', 'Welcome to coronatime!');
 	}
