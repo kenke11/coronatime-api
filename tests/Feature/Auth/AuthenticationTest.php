@@ -135,4 +135,22 @@ class AuthenticationTest extends TestCase
 			->call('login')
 			->assertHasErrors('password');
 	}
+
+	/**
+	 * @test
+	 */
+	public function if_user_authentificated_and_it_is_included_in_the_login_page()
+	{
+		$user = User::factory()->create([
+			'username'          => 'tazo1',
+			'email'             => 'tazo1@gmail.com',
+			'email_verified_at' => now(),
+		]);
+
+		$this->actingAs($user);
+
+		$response = $this->get(route('login'));
+
+		$response->assertRedirect('dashboard');
+	}
 }
