@@ -122,11 +122,11 @@
                                     @click.away="menuOpen = false"
                                     class="py-5 px-5 rounded-xl border border-gray-300 bg-gray-200 w-80 self-center opacity-100 z-20">
                                     <div>
-                                        Do you really want to log out?
+                                        @lang('do_you_really_want_to_log_out')
                                     </div>
                                     <div class="flex justify-end space-x-6 mt-5">
                                         <a class="px-2 py-1 border border-gray-300 rounded hover:bg-red-200 transition duration-150" href="{{route('logout')}}">@lang('log_out')</a>
-                                        <button @click="isShow = false" class="px-2 py-1 border border-gray-300 rounded hover:bg-blue-200 transition duration-150" >Close</button>
+                                        <button @click="isShow = false" class="px-2 py-1 border border-gray-300 rounded hover:bg-blue-200 transition duration-150" >@lang('close')</button>
                                     </div>
                                 </div>
                             </div>

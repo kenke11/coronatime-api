@@ -12,5 +12,7 @@
     "recovered": "Recovered",
     "worldwide_statistics": "Worldwide Statistics",
     "statistics_by_country": "Statistics by country",
-    "countries_not_found": "Countries not found"
+    "countries_not_found": "Countries not found",
+    "do_you_really_want_to_log_out": "Do you really want to log out?",
+    "close": "Close"
 }

@@ -12,5 +12,7 @@
     "recovered": "გამოჯამთელებული",
     "worldwide_statistics": "სტატისტიკა მსოფლიოს მაშტაბით",
     "statistics_by_country": "სტატისტიკა ქვეყნების მიხედვით",
-    "countries_not_found": "ქვეყნები ვერ მოიძებნა"
+    "countries_not_found": "ქვეყნები ვერ მოიძებნა",
+    "do_you_really_want_to_log_out": "ნამდვილად გსურთ გასვლა?",
+    "close": "დახურვა"
 }
