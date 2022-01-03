@@ -11,5 +11,6 @@
     "deaths": "Deaths",
     "recovered": "Recovered",
     "worldwide_statistics": "Worldwide Statistics",
+    "statistics_by_country": "Statistics by country",
     "countries_not_found": "Countries not found"
 }

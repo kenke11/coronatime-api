@@ -140,7 +140,9 @@
 
     <nav class="mx-4 md:mx-28">
         <div class="my-4 md:my-10">
-            <h2 class="font-semibold text-xl md:text-2xl">@lang('worldwide_statistics')</h2>
+            <h2 class="font-semibold text-xl md:text-2xl">
+                @if(Route::is('by-country')) @lang('statistics_by_country') @else  @lang('worldwide_statistics') @endif
+            </h2>
         </div>
         <div>
             <div class="flex space-x-6 md:space-x-20 border-b border-gray-300 text-sm md:text-md">
