@@ -22,6 +22,30 @@ class DashboardWorldwideIndexTest extends TestCase
 			'email_verified_at' => now(),
 		]);
 
+        $countryOne = Country::create([
+            'code'    => 'GE',
+            'country' => [
+                'en' => 'Georgia',
+                'ka' => 'საქართველო',
+            ],
+            'confirmed' => 100,
+            'recovered' => 100,
+            'critical'  => 100,
+            'deaths'    => 100,
+        ]);
+
+        $countryTwo = Country::create([
+            'code'    => 'EN',
+            'country' => [
+                'en' => 'England',
+                'ka' => 'ინგლისი',
+            ],
+            'confirmed' => 200,
+            'recovered' => 200,
+            'critical'  => 200,
+            'deaths'    => 200,
+        ]);
+
 		$this->actingAs($user)
 			->get(route('dashboard'));
 
