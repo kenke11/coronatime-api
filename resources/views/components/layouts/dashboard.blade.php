@@ -85,8 +85,23 @@
                                 <div class="font-semibold py-1">
                                     {{auth()->user()->username}}
                                 </div>
-                                <div class="mt-1 border-t py-1">
-                                    <a href="{{route('logout')}}">@lang('log_out')</a>
+                                <div x-data="{isShow: false}" class="mt-1 border-t py-1">
+                                    <button @click="isShow = true">@lang('log_out')</button>
+
+                                    <div x-show="isShow" class="fixed flex flex-col justify-center content-center bg-pale-black top-0 bottom-0 right-0 left-0">
+                                        <div @click="isShow = false" class="fixed top-0 bottom-0 right-0 left-0 bg-gray-900 opacity-50"></div>
+                                        <div
+                                            @click.away="menuOpen = false"
+                                            class="py-5 px-5 rounded-xl border border-gray-300 bg-gray-200 w-80 self-center opacity-100 z-20">
+                                            <div>
+                                                Do you really want to log out?
+                                            </div>
+                                            <div class="flex justify-end space-x-6 mt-5">
+                                                <a class="px-2 py-1 border border-gray-300 rounded hover:bg-red-200 transition duration-150" href="{{route('logout')}}">@lang('log_out')</a>
+                                                <button @click="isShow = false" class="px-2 py-1 border border-gray-300 rounded hover:bg-blue-200 transition duration-150" >Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -98,8 +113,23 @@
                                 {{auth()->user()->username}}
                             </div>
                         </div>
-                        <div class="pl-4 border-l-2">
-                            <a href="{{route('logout')}}">@lang('log_out')</a>
+                        <div x-data="{isShow: false}" class="pl-4 border-l-2">
+                            <button @click="isShow = true">@lang('log_out')</button>
+
+                            <div x-show="isShow" class="fixed flex flex-col justify-center content-center bg-pale-black top-0 bottom-0 right-0 left-0">
+                                <div @click="isShow = false" class="fixed top-0 bottom-0 right-0 left-0 bg-gray-900 opacity-50"></div>
+                                <div
+                                    @click.away="menuOpen = false"
+                                    class="py-5 px-5 rounded-xl border border-gray-300 bg-gray-200 w-80 self-center opacity-100 z-20">
+                                    <div>
+                                        Do you really want to log out?
+                                    </div>
+                                    <div class="flex justify-end space-x-6 mt-5">
+                                        <a class="px-2 py-1 border border-gray-300 rounded hover:bg-red-200 transition duration-150" href="{{route('logout')}}">@lang('log_out')</a>
+                                        <button @click="isShow = false" class="px-2 py-1 border border-gray-300 rounded hover:bg-blue-200 transition duration-150" >Close</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

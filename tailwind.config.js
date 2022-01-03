@@ -6,6 +6,9 @@ module.exports = {
         extend: {
             spacing: {
                 150: '37.6rem'
+            },
+            color: {
+                "pale-black": "rgba(200, 200, 200, 0.5)",
             }
         },
     },
