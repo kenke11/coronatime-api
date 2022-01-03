@@ -91,7 +91,7 @@
                     </form>
                 </div>
             </div>
-            <div class="overflow-y-auto max-h-150">
+            <div class="overflow-y-auto max-h-96">
                 @forelse($countries as $country)
                     <div class="grid grid-cols-4 gap-4  py-5 pl-4 md:pl-10 border-b border-gray-100">
                         <div>{{$country->country}}</div>
