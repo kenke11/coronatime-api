@@ -19,6 +19,18 @@
         {{$slot}}
     </div>
 
+    @if(session('success'))
+        <x-success-notification message="{{session('success')}}"/>
+    @endif
+
+    @if(session('error'))
+        <x-error-notification message="{{session('error')}}"/>
+    @endif
+
+    @if(session('info'))
+        <x-info-notification message="{{session('info')}}"/>
+    @endif
+
     @livewireScripts
 </body>
 </html>
