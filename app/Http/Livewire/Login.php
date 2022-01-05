@@ -41,6 +41,8 @@ class Login extends Component
 		}
 		else
 		{
+			$this->username = '';
+			$this->password = '';
 			throw ValidationException::withMessages(
 				[
 					'not_login' => 'Username or password incorrect',
