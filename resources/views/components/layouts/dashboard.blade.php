@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/png" href="{{assert('images/logo.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}">
     <title>Coronatime</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -87,11 +87,11 @@
                                 <div x-data="{isShow: false}" class="mt-1 border-t py-1">
                                     <button @click="isShow = true">@lang('log_out')</button>
 
-                                    <div x-show="isShow" class="fixed flex flex-col justify-center content-center bg-pale-black top-0 bottom-0 right-0 left-0">
-                                        <div @click="isShow = false" class="fixed top-0 bottom-0 right-0 left-0 bg-gray-900 opacity-50"></div>
+                                    <div x-show="isShow" class=" absolute calc-top flex flex-col justify-center content-center bg-pale-black top-0 bottom-0 right-0 left-0 max-w-full">
+                                        <div @click="isShow = false" class="fixed top-0 bottom-0 right-0 left-0 bg-gray-900 opacity-50 z-20"></div>
                                         <div
                                             @click.away="menuOpen = false"
-                                            class="py-5 px-5 rounded-xl border border-gray-300 bg-gray-200 w-80 self-center opacity-100 z-20">
+                                            class="py-5 px-5 rounded-xl border border-gray-300 bg-gray-200 w-72 self-end -mr-1 opacity-100 z-30">
                                             <div>
                                                 Do you really want to log out?
                                             </div>
@@ -115,15 +115,16 @@
                         <div x-data="{isShow: false}" class="pl-4 border-l-2">
                             <button @click="isShow = true">@lang('log_out')</button>
 
-                            <div x-show="isShow" class="fixed flex flex-col justify-center content-center bg-pale-black top-0 bottom-0 right-0 left-0">
-                                <div @click="isShow = false" class="fixed top-0 bottom-0 right-0 left-0 bg-gray-900 opacity-50"></div>
+                            <div x-show="isShow" class="absolute calc-top flex flex-col justify-center content-center top-0 bottom-0 right-0 left-0">
+                                <div @click="isShow = false" class="fixed top-0 bottom-0 right-0 left-0 bg-gray-900 opacity-50 z-20 transform"></div>
                                 <div
                                     @click.away="menuOpen = false"
-                                    class="py-5 px-5 rounded-xl border border-gray-300 bg-gray-200 w-80 self-center opacity-100 z-20">
+                                    class="py-5 px-5 rounded-xl border border-gray-300 bg-gray-200 w-80 self-center opacity-100 z-30">
                                     <div>
                                         @lang('do_you_really_want_to_log_out')
                                     </div>
                                     <div class="flex justify-end space-x-6 mt-5">
+
                                         <a class="px-2 py-1 border border-gray-300 rounded hover:bg-red-200 transition duration-150" href="{{route('logout')}}">@lang('log_out')</a>
                                         <button @click="isShow = false" class="px-2 py-1 border border-gray-300 rounded hover:bg-blue-200 transition duration-150" >@lang('close')</button>
                                     </div>
