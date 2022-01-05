@@ -45,7 +45,7 @@ class Login extends Component
 			$this->password = '';
 			throw ValidationException::withMessages(
 				[
-					'not_login' => 'Username or password incorrect',
+					'not_login' => trans('validation.not_login'),
 				]
 			);
 		}

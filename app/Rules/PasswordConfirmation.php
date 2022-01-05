@@ -34,10 +34,12 @@ class PasswordConfirmation implements Rule
 	/**
 	 * Get the validation error message.
 	 *
-	 * @return string
+	 * @return array
 	 */
 	public function message()
 	{
-		return 'The password does not match.';
+		return [
+			'password_confirmation' => trans('validation.password_confirmation'),
+		];
 	}
 }

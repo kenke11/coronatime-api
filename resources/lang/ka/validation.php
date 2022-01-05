@@ -9,4 +9,5 @@ return [
 	'unique'                => 'ასეთი :attribute უკვე არსებობს.',
 	'email'                 => ':attribute-ს ველი უნდა იყოს ელ-ფოსტა.',
 	'not_login'             => 'მომხმარებლის სახელი ან პაროლი არასწორია.',
+	'password_confirmation' => 'პაროლი არ ემთხვევა',
 ];

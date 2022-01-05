@@ -137,7 +137,10 @@ return [
 	|
 	*/
 
-	'custom' => [
+	'not_login'             => 'Username or password incorrect',
+	'password_confirmation' => 'The password does not match',
+
+	'custom'                => [
 		'attribute-name' => [
 			'rule-name' => 'custom-message',
 		],
