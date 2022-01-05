@@ -40,7 +40,6 @@ class UpdateStatistic extends Command
 	public function handle()
 	{
 		$file = Http::get('https://devtest.ge/countries');
-
 		$data = json_decode($file);
 
 		foreach ($data as $country)
