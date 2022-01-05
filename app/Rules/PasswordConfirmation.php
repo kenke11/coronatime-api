@@ -38,6 +38,9 @@ class PasswordConfirmation implements Rule
 	 */
 	public function message()
 	{
-		return 'The password does not match.';
+		return [
+			'en' => 'The password does not match.',
+			'ka' => 'პაროლი არ ემთხვევა.',
+		];
 	}
 }
