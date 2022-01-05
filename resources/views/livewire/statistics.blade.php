@@ -16,8 +16,8 @@
     </div>
 
     <div class="my-10">
-        <div class="w-screen-max overflow-x-auto rounded-md text-xs md:text-sm border border-gray-100">
-            <div class="grid grid-cols-4 gap-12 md:gap-4 bg-gray-100 py-5 pl-4 md:pl-10 font-semibold">
+        <div class="overflow-x-auto rounded-md text-xs md:text-sm border border-gray-100">
+            <div class="grid grid-cols-4 gap-4 bg-gray-100 py-5 pl-4 md:pl-10 font-semibold">
                 <div class="">
                     <form wire:submit.prevent="location">
                         <button
@@ -93,7 +93,7 @@
             </div>
             <div class="overflow-y-auto max-h-96 w-full">
                 @forelse($countries as $country)
-                    <div class="grid grid-cols-4 gap-12 md:gap-4 py-5 pl-4 md:pl-10 border-b border-gray-100 w-full">
+                    <div class="grid grid-cols-4 gap-4 py-5 pl-4 md:pl-10 border-b border-gray-100 w-full">
                         <div>{{$country->country}}</div>
                         <div>{{$country->confirmed}}</div>
                         <div>{{$country->deaths}}</div>

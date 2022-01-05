@@ -8,18 +8,18 @@
     </div>
 
     <div class="flex-1 flex flex-col w-7/12 justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-        <div class="mx-auto w-full max-w-sm lg:w-96">
+        <div class="mx-auto w-full max-w-sm md:min-w-max lg:w-96">
             <div>
                 <img class="h-12 w-auto" src="{{asset('images/logo.png')}}" alt="Workflow">
                 <h2 class="mt-16 text-3xl font-semibold text-gray-900">
-                    Welcome to Coronatime
+                    @lang('welcome_to_coronatime')
                 </h2>
                 <p class="mt-4 text-sm text-gray-500">
-                    Please enter required info to sign up
+                    @lang('please_enter_required_info_to_sign_up')
                 </p>
             </div>
 
-            <div class="mt-8">
+            <div class="mt-8 max-w-sm">
 
                 <div class="mt-6">
                     <form
@@ -30,7 +30,7 @@
                     >
                         <div>
                             <label for="username" class="block text-sm font-semibold text-gray-900">
-                                Username
+                                @lang('username')
                             </label>
                             <div class="mt-1">
                                 <input
@@ -39,7 +39,7 @@
                                     name="username"
                                     type="text"
                                     class="@error('username') border-red-600 @enderror appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                    placeholder="Enter unique username or email"
+                                    placeholder="@lang('enter_unique_username')"
                                 >
                             </div>
                             <div class="mt-1 h-2">
@@ -53,7 +53,7 @@
                                 @else
                                     <div class="mt-1">
                                         <p class="text-gray-400 text-xs">
-                                            Username should be unique, min 3 symbols
+                                            @lang('username_should_be_unique_min_3_symbols')
                                         </p>
                                     </div>
                                 @enderror
@@ -63,7 +63,7 @@
 
                         <div>
                             <label for="email" class="block text-sm font-semibold text-gray-900">
-                                Email
+                                @lang('email')
                             </label>
                             <div class="mt-1">
                                 <input
@@ -72,7 +72,7 @@
                                     name="email"
                                     type="email"
                                     class="@error('email') border-red-600 @enderror appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                    placeholder="Enter unique username or email"
+                                    placeholder="@lang('enter_unique_email')"
                                 >
                             </div>
                             <div class="mt-1 h-2">
@@ -89,7 +89,7 @@
 
                         <div class="space-y-1">
                             <label for="password" class="block text-sm font-semibold text-gray-900">
-                                Password
+                                @lang('password')
                             </label>
                             <div class="mt-1">
                                 <input
@@ -98,7 +98,7 @@
                                     name="password"
                                     type="password"
                                     class="@error('password') border-red-600 @enderror appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                    placeholder="Fill in password"
+                                    placeholder="@lang('fill_in_password')"
                                 >
                             </div>
                             <div class="mt-1 h-2">
@@ -115,7 +115,7 @@
 
                         <div class="space-y-1">
                             <label for="password_confirmation" class="block text-sm font-semibold text-gray-900">
-                                Repeat password
+                                @lang('repeat_password')
                             </label>
                             <div class="mt-1">
                                 <input
@@ -124,7 +124,7 @@
                                     name="password_confirmation"
                                     type="password"
                                     class="@error('password_confirmation') border-red-600 @enderror appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                    placeholder="Repeat password"
+                                    placeholder="@lang('repeat_password')"
                                 >
                             </div>
                             <div class="mt-1 h-2">
@@ -148,19 +148,19 @@
                                     class="h-4 w-4 text-green-500"
                                 >
                                 <label for="remember-me" class="ml-2 block font-semibold text-sm text-gray-900">
-                                    Remember this device
+                                    @lang('remember_this_device')
                                 </label>
                             </div>
                         </div>
 
                         <div>
                             <button type="submit" class="w-full flex justify-center uppercase py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                                Sign up
+                                @lang('sign_up')
                             </button>
                         </div>
 
                         <div class="flex justify-center text-gray-500">
-                            <span>Already have an account? <a href="{{route('login')}}" class="font-semibold text-gray-800">Log in</a></span>
+                            <span>@lang('already_have_an_account') <a href="{{route('login')}}" class="font-semibold text-gray-800">@lang('log_in')</a></span>
                         </div>
                     </form>
                 </div>
