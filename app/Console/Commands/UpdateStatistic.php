@@ -42,32 +42,40 @@ class UpdateStatistic extends Command
 		$file = Http::get('https://devtest.ge/countries');
 		$data = json_decode($file);
 
-		foreach ($data as $country)
+		if ($data)
 		{
-			$response = Http::post('https://devtest.ge/get-country-statistics', [
-				'code' => $country->code,
-			]);
-			sleep(2);
-			$res = json_decode($response);
+			foreach ($data as $country)
+			{
+				$response = Http::post('https://devtest.ge/get-country-statistics', [
+					'code' => $country->code,
+				]);
+				sleep(2);
+				$res = json_decode($response);
 
-			$translations = [
-				'en' => $country->name->en,
-				'ka' => $country->name->ka,
-			];
+				$translations = [
+					'en' => $country->name->en,
+					'ka' => $country->name->ka,
+				];
 
-			Country::updateOrCreate(
-				[
-					'code'      => $res->code,
-				],
-				[
-					'country'   => $translations,
-					'confirmed' => $res->confirmed,
-					'recovered' => $res->recovered,
-					'critical'  => $res->critical,
-					'deaths'    => $res->deaths,
-				]
-			);
+				Country::updateOrCreate(
+					[
+						'code'      => $res->code,
+					],
+					[
+						'country'   => $translations,
+						'confirmed' => $res->confirmed,
+						'recovered' => $res->recovered,
+						'critical'  => $res->critical,
+						'deaths'    => $res->deaths,
+					]
+				);
+			}
 		}
+		else
+		{
+			echo 'error ';
+		}
+
 		return 'success';
 	}
 }
