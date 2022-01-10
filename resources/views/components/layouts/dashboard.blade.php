@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}">
+    <link rel="icon" type="image/png" size="16x16" href="{{asset('images/faicon/favicon-16x16.png')}}">
     <title>Coronatime</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
