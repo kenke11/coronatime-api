@@ -1,6 +1,6 @@
-## Voting app
+## Coronatime
 <p align="left">
-    // About for voting app
+    // About for coronatime app
 </p>
 
 ## Table of Contents
@@ -29,7 +29,7 @@
 1. First of all you need to clone this repository from github:
 
 ```sh
-git clone https://github.com/RedberryInternship/tazokenkebashvili-voting-app.git
+git clone https://github.com/RedberryInternship/tazokenkebashvili-coronatime.git
 ```
 
 2. Next step requires from you to run *composer install* in order to install all the dependencies.
