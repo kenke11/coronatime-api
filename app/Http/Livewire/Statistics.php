@@ -134,7 +134,7 @@ class Statistics extends Component
 		return view('livewire.statistics', [
 			'countries' => Country::search($this->search)
 				->when($this->location, function ($query) {
-					return $query->orderBy('country', $this->locationSort);
+					return $query->orderBy('country->' . app()->getLocale(), $this->locationSort);
 				})
 				->when($this->newCase, function ($query) {
 					return $query->orderBy('confirmed', $this->newCaseSort);

@@ -16,6 +16,7 @@
     </div>
 
     <div class="my-0 md:my-10">
+
         <div class="overflow-x-auto rounded-md text-xs md:text-sm border border-gray-100">
             <div class="grid grid-cols-4 gap-4 bg-gray-100 py-5 pl-4 md:pl-10 font-semibold">
                 <div class="">
@@ -24,7 +25,9 @@
                             type="submit"
                             class="cursor-pointer flex items-center self-start"
                         >
-                            <span class="font-semibold">@lang('location')</span>
+                            <span class="font-semibold">
+                                @lang('location')
+                            </span>
                             <div class="ml-1">
                                 <div class="mb-0.5 transform rotate-180  opacity-25 @if($locationSort == 'DESC') opacity-100 @endif">
                                     <img src="{{asset('images/vector.png')}}" >
@@ -78,7 +81,9 @@
                             type="submit"
                             class="-ml-3 cursor-pointer flex items-center self-start"
                         >
-                            <span class="font-semibold">@lang('recovered')</span>
+                            <span class="font-semibold">
+                                @lang('recovered')
+                            </span>
                             <div class="ml-1">
                                 <div class="mb-0.5  transform rotate-180 opacity-25 @if($recoveredSort == 'DESC') opacity-100 @endif">
                                     <img src="{{asset('images/vector.png')}}" >
@@ -94,7 +99,7 @@
             <div class="overflow-y-auto max-h-64 md:max-h-96 w-full">
                 @forelse($countries as $country)
                     <div class="grid grid-cols-4 gap-4 py-5 pl-4 md:pl-10 border-b border-gray-100 w-full">
-                        <div>{{$country->country}}</div>
+                        <div>{{$country->getTranslation('country', app()->getLocale())}}</div>
                         <div>{{$country->confirmed}}</div>
                         <div>{{$country->deaths}}</div>
                         <div>{{$country->recovered}}</div>

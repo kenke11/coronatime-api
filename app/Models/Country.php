@@ -18,7 +18,7 @@ class Country extends Model
 	{
 		$term = "%$term%";
 		$query->where(function ($query) use ($term) {
-			$query->where('country', 'like', $term);
+			$query->where('country->' . app()->getLocale(), 'like', $term);
 		});
 	}
 }

@@ -1,5 +1,5 @@
 <x-layouts.dashboard>
-    <div>
+    <div class="mt-3">
         <div>
             <div class="grid grid-cols-1 gap-6 grid-cols-1 grid-cols-1 md:hidden">
                 <div class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200 bg-purple-100">
