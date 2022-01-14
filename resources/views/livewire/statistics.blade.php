@@ -23,7 +23,7 @@
                     <form wire:submit.prevent="location">
                         <button
                             type="submit"
-                            class="cursor-pointer flex items-center self-start"
+                            class="cursor-pointer flex items-center self-start @if(app()->getLocale() === 'ka')  @endif"
                         >
                             <span class="font-semibold">
                                 @lang('location')
@@ -43,7 +43,7 @@
                     <form wire:submit.prevent="newCase">
                         <button
                             type="submit"
-                            class="-ml-0.5 cursor-pointer flex items-center self-start"
+                            class="-ml-0.5 cursor-pointer flex items-center self-start @if(app()->getLocale() === 'ka') გ @endif"
                         >
                             <span class="font-semibold">@lang('new_case')</span>
                             <div class="ml-1">
@@ -61,7 +61,7 @@
                     <form wire:submit.prevent="deaths">
                         <button
                             type="submit"
-                            class="-ml-1.5 cursor-pointer flex items-center self-start"
+                            class="-ml-1.5 cursor-pointer flex items-center self-start @if(app()->getLocale() === 'ka') break-all @endif"
                         >
                             <span class="font-semibold">@lang('deaths')</span>
                             <div class="ml-1">
@@ -79,7 +79,7 @@
                     <form wire:submit.prevent="recovered">
                         <button
                             type="submit"
-                            class="-ml-3 cursor-pointer flex items-center self-start"
+                            class="-ml-3 cursor-pointer flex items-center self-start @if(app()->getLocale() === 'ka') break-all @endif"
                         >
                             <span class="font-semibold">
                                 @lang('recovered')
