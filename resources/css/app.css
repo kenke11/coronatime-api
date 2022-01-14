@@ -6,3 +6,7 @@
 .calc-top{
     top: calc(50vh - 50px);
 }
+
+.calc-table {
+    height: calc(100vh - 228px - 100px);
+}

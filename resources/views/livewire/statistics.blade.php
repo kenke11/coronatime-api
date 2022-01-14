@@ -96,7 +96,7 @@
                     </form>
                 </div>
             </div>
-            <div class="overflow-y-auto max-h-64 md:max-h-96 w-full">
+            <div class="overflow-y-auto calc-table md:h-96 w-full">
                 @forelse($countries as $country)
                     <div class="grid grid-cols-4 gap-4 py-5 pl-4 md:pl-10 border-b border-gray-100 w-full">
                         <div>{{$country->getTranslation('country', app()->getLocale())}}</div>

@@ -32139,6 +32139,10 @@ video {
   top: calc(50vh - 50px);
 }
 
+.calc-table {
+  height: calc(100vh - 228px - 100px);
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
