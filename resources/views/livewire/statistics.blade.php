@@ -1,7 +1,7 @@
 <div class="-mx-4 md:mx-0">
-    <div class="w-60 mt-1 relative md:border md:border-gray-300 rounded-md shadow-sm">
+    <div class="w-60 mt-0 md:mt-1 relative md:border md:border-gray-300 rounded-md shadow-sm">
         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <svg class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-4 h-4 md:h-6 md:w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
@@ -11,11 +11,11 @@
             type="text"
             name="search"
             id="search"
-            class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-14 py-4 sm:text-sm border-gray-300 rounded-md"
+            class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 md:pl-14 py-4 text-sm md:text-base border-gray-300 rounded-md outline-none"
             placeholder="@lang('search_by_country')">
     </div>
 
-    <div class="my-10">
+    <div class="my-0 md:my-10">
         <div class="overflow-x-auto rounded-md text-xs md:text-sm border border-gray-100">
             <div class="grid grid-cols-4 gap-4 bg-gray-100 py-5 pl-4 md:pl-10 font-semibold">
                 <div class="">
@@ -91,7 +91,7 @@
                     </form>
                 </div>
             </div>
-            <div class="overflow-y-auto max-h-96 w-full">
+            <div class="overflow-y-auto max-h-64 md:max-h-96 w-full">
                 @forelse($countries as $country)
                     <div class="grid grid-cols-4 gap-4 py-5 pl-4 md:pl-10 border-b border-gray-100 w-full">
                         <div>{{$country->country}}</div>

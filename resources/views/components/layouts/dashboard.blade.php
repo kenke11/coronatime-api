@@ -153,7 +153,7 @@
     </nav>
 
     <div
-        class="mx-4 md:mx-28 mb-12 pt-10"
+        class="mx-4 md:mx-28  pt-0 md:pt-10"
     >
         {{$slot}}
     </div>
