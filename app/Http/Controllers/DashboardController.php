@@ -8,17 +8,9 @@ class DashboardController extends Controller
 {
 	public function index()
 	{
-		$countries = Country::all();
-		$new_case = 0;
-		$recovered = 0;
-		$deaths = 0;
-
-		foreach ($countries as $country)
-		{
-			$new_case += $country->confirmed;
-			$recovered += $country->recovered;
-			$deaths += $country->deaths;
-		}
+		$new_case = Country::sum('confirmed');
+		$recovered = Country::sum('recovered');
+		$deaths = Country::sum('confirmed');
 
 		return view('worldwide', [
 			'new_case'  => $new_case,
