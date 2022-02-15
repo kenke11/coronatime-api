@@ -49,7 +49,7 @@ class Statistics extends Component
 			$this->locationSort = 'ASC';
 			$this->locationChecked = false;
 		}
-		elseif (!$this->locationChecked)
+		else
 		{
 			$this->locationSort = 'DESC';
 			$this->locationChecked = true;
@@ -72,7 +72,7 @@ class Statistics extends Component
 			$this->newCaseSort = 'ASC';
 			$this->newCaseChecked = false;
 		}
-		elseif (!$this->newCaseChecked)
+		else
 		{
 			$this->newCaseSort = 'DESC';
 			$this->newCaseChecked = true;
@@ -95,7 +95,7 @@ class Statistics extends Component
 			$this->deathsSort = 'ASC';
 			$this->deathsChecked = false;
 		}
-		elseif (!$this->deathsChecked)
+		else
 		{
 			$this->deathsSort = 'DESC';
 			$this->deathsChecked = true;
@@ -118,7 +118,7 @@ class Statistics extends Component
 			$this->recoveredSort = 'ASC';
 			$this->recoveredChecked = false;
 		}
-		elseif (!$this->recoveredChecked)
+		else
 		{
 			$this->recoveredSort = 'DESC';
 			$this->recoveredChecked = true;
