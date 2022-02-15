@@ -81,7 +81,6 @@ class AuthenticationTest extends TestCase
 	 */
 	public function user_login_with_remember_me()
 	{
-		// TODO
 		$user = User::factory()->create([
 			'username'    => 'davit',
 		]);

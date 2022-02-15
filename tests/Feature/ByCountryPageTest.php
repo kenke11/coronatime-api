@@ -17,7 +17,7 @@ class ByCountryPageTest extends TestCase
 	 */
 	public function search_works_correctly()
 	{
-		$countryOne = Country::create([
+		Country::create([
 			'code'    => 'GE',
 			'country' => [
 				'en' => 'Georgia',
@@ -29,7 +29,7 @@ class ByCountryPageTest extends TestCase
 			'deaths'    => 100,
 		]);
 
-		$countryTwo = Country::create([
+		Country::create([
 			'code'    => 'EN',
 			'country' => [
 				'en' => 'England',
@@ -53,7 +53,7 @@ class ByCountryPageTest extends TestCase
 	 */
 	public function sorting_works_correctly_by_location()
 	{
-		$countryOne = Country::create([
+		Country::create([
 			'code'    => 'GE',
 			'country' => [
 				'en' => 'Georgia',
@@ -65,7 +65,7 @@ class ByCountryPageTest extends TestCase
 			'deaths'    => 100,
 		]);
 
-		$countryTwo = Country::create([
+		Country::create([
 			'code'    => 'EN',
 			'country' => [
 				'en' => 'England',
@@ -93,7 +93,7 @@ class ByCountryPageTest extends TestCase
 	 */
 	public function sorting_works_correctly_by_new_case()
 	{
-		$countryOne = Country::create([
+		Country::create([
 			'code'    => 'GE',
 			'country' => [
 				'en' => 'Georgia',
@@ -105,7 +105,7 @@ class ByCountryPageTest extends TestCase
 			'deaths'    => 100,
 		]);
 
-		$countryTwo = Country::create([
+		Country::create([
 			'code'    => 'EN',
 			'country' => [
 				'en' => 'England',
@@ -133,7 +133,7 @@ class ByCountryPageTest extends TestCase
 	 */
 	public function sorting_works_correctly_by_deaths()
 	{
-		$countryOne = Country::create([
+		Country::create([
 			'code'    => 'GE',
 			'country' => [
 				'en' => 'Georgia',
@@ -145,7 +145,7 @@ class ByCountryPageTest extends TestCase
 			'deaths'    => 100,
 		]);
 
-		$countryTwo = Country::create([
+		Country::create([
 			'code'    => 'EN',
 			'country' => [
 				'en' => 'England',
@@ -173,7 +173,7 @@ class ByCountryPageTest extends TestCase
 	 */
 	public function sorting_works_correctly_by_recovered()
 	{
-		$countryOne = Country::create([
+		Country::create([
 			'code'    => 'GE',
 			'country' => [
 				'en' => 'Georgia',
@@ -185,7 +185,7 @@ class ByCountryPageTest extends TestCase
 			'deaths'    => 100,
 		]);
 
-		$countryTwo = Country::create([
+		Country::create([
 			'code'    => 'EN',
 			'country' => [
 				'en' => 'England',

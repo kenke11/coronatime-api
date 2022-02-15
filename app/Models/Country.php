@@ -16,9 +16,8 @@ class Country extends Model
 
 	public function scopeSearch($query, $term)
 	{
-		$term = "%$term%";
 		$query->where(function ($query) use ($term) {
-			$query->where('country->' . app()->getLocale(), 'like', $term);
+			$query->where('country->' . app()->getLocale(), 'like', "%$term%");
 		});
 	}
 }
