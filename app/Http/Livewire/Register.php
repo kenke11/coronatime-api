@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Mail\VerifyEmail;
 use App\Models\User;
-use App\Rules\PasswordConfirmation;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -25,7 +24,7 @@ class Register extends Component
 			'username'              => ['required', 'min:3', 'unique:users,username'],
 			'email'                 => ['required', 'email', 'min:3', 'unique:users,email'],
 			'password'              => ['required', 'min:3'],
-			'password_confirmation' => [new PasswordConfirmation($this->password)],
+			'password_confirmation' => ['required', 'same:password'],
 		];
 	}
 
