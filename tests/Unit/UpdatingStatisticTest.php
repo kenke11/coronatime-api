@@ -19,7 +19,7 @@ class UpdatingStatisticTest extends TestCase
 		$schedule = app()->make(Schedule::class);
 
 		$events = collect($schedule->events())->filter(function (Event $event) {
-			return stripos($event->command, 'command:update-statistics');
+			return stripos($event->command, 'update:statistics');
 		});
 
 		if ($events->count() == 0)

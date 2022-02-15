@@ -13,7 +13,7 @@ class UpdateStatistic extends Command
 	 *
 	 * @var string
 	 */
-	protected $signature = 'command:update-statistics';
+	protected $signature = 'update:statistics';
 
 	/**
 	 * The console command description.
@@ -39,12 +39,11 @@ class UpdateStatistic extends Command
 	 */
 	public function handle()
 	{
-		$file = Http::get('https://devtest.ge/countries');
-		$data = json_decode($file);
+		$countries = json_decode(Http::get('https://devtest.ge/countries'));
 
-		if ($data)
+		if ($countries)
 		{
-			foreach ($data as $country)
+			foreach ($countries as $country)
 			{
 				$response = Http::post('https://devtest.ge/get-country-statistics', [
 					'code' => $country->code,
@@ -70,12 +69,11 @@ class UpdateStatistic extends Command
 					]
 				);
 			}
+			echo 'Countries updated successfully!!!';
 		}
 		else
 		{
-			echo 'error ';
+			echo 'Countries not found!';
 		}
-
-		return 'success';
 	}
 }
