@@ -42,7 +42,7 @@ class ResetPassword extends Component
 			return redirect()->route('login')->with('error', 'Invalid token!');
 		}
 
-		$user = User::where('email', $updatePassword->email)
+		User::where('email', $updatePassword->email)
 			->update(['password' => Hash::make($this->password)]);
 
 		DB::table('password_resets')->where(['token'=> $this->token])->delete();
