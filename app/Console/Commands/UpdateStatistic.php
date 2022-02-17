@@ -45,11 +45,11 @@ class UpdateStatistic extends Command
 		{
 			foreach ($countries as $country)
 			{
-				$response = Http::post('https://devtest.ge/get-country-statistics', [
+				$statistic = json_decode(Http::post('https://devtest.ge/get-country-statistics', [
 					'code' => $country->code,
-				]);
+				]));
+
 				sleep(2);
-				$res = json_decode($response);
 
 				$translations = [
 					'en' => $country->name->en,
@@ -58,14 +58,14 @@ class UpdateStatistic extends Command
 
 				Country::updateOrCreate(
 					[
-						'code'      => $res->code,
+						'code'      => $statistic->code,
 					],
 					[
 						'country'   => $translations,
-						'confirmed' => $res->confirmed,
-						'recovered' => $res->recovered,
-						'critical'  => $res->critical,
-						'deaths'    => $res->deaths,
+						'confirmed' => $statistic->confirmed,
+						'recovered' => $statistic->recovered,
+						'critical'  => $statistic->critical,
+						'deaths'    => $statistic->deaths,
 					]
 				);
 			}
