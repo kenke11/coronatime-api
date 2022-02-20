@@ -16,8 +16,7 @@
     <header>
     <div class="relative bg-white border-b-2 border-gray-100">
         <div class="px-6 px-4 md:px-28">
-            <div
-                class="flex justify-between items-center py-6">
+            <div class="flex justify-between items-center py-6">
                 <div class="flex justify-start lg:w-0 lg:flex-1">
                     <a href="{{route('dashboard')}}">
                         <img class="h-8 w-auto sm:h-10" src="{{asset('images/logo.png')}}" alt="">
@@ -132,6 +131,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
