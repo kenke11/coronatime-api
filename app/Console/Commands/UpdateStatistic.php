@@ -53,7 +53,7 @@ class UpdateStatistic extends Command
 
 				$translations = [
 					'en' => $country->name->en,
-					'ka' => $country->name->ka,
+					'ge' => $country->name->ka,
 				];
 
 				Country::updateOrCreate(

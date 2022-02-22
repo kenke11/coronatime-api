@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -46,19 +47,26 @@ class AuthController extends Controller
 		if (auth()->attempt(['email' => $request->username, 'password' => $request->password], $request->remember_me) || auth()->attempt(['username' => $request->username, 'password' => $request->password], $request->remember_me))
 		{
 			$user = auth()->user();
-
+			if ($user->email_verified_at)
+			{
+				return response()->json([
+					'status'  => 'success',
+					'message' => 'User logged in successfully!!!',
+					'user'    => $user,
+					'idToken' => $this->idToken,
+				]);
+			}
 			return response()->json([
-				'status'  => 'success',
-				'message' => 'User logged in successfully!!!',
-				'user'    => $user,
-				'idToken' => $this->idToken,
+				'status'   => 'error',
+				'message'  => 'Username or password incorrect',
+				'error'    => 'email_not_verified',
 			]);
 		}
 
 		return response()->json([
 			'status'   => 'error',
 			'message'  => 'Username or password incorrect',
-			'errors'   => 'not_login',
+			'error'    => 'not_login',
 		]);
 	}
 
@@ -129,6 +137,48 @@ class AuthController extends Controller
 		return response()->json([
 			'status'  => 'success',
 			'message' => 'We have sent you a confirmation email',
+		]);
+	}
+
+	public function resetPassword(Request $request)
+	{
+		$validator = Validator::make(
+			$request->all(),
+			[
+				'token'    => 'required',
+				'password' => 'required|min:3',
+			]
+		);
+
+		if ($validator->fails())
+		{
+			return response()->json([
+				'status'  => 'error',
+				'message' => 'Validation error!',
+				'errors'  => $validator->errors(),
+			]);
+		}
+
+		$updatePassword = DB::table('password_resets')
+			->where('token', $request->token)->first();
+
+		if (!$updatePassword)
+		{
+			return response()->json([
+				'status'  => 'error',
+				'message' => 'Invalid token!',
+				'errors'  => 'invalid_token',
+			]);
+		}
+
+		User::where('email', $updatePassword->email)
+			->update(['password' => Hash::make($request->password)]);
+
+		DB::table('password_resets')->where(['token'=> $request->token])->delete();
+
+		return response()->json([
+			'status'  => 'success',
+			'message' => 'Password successfully updated!',
 		]);
 	}
 }
