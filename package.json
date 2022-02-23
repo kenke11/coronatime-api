@@ -18,6 +18,7 @@
         "tailwindcss": "^2.2.19"
     },
     "dependencies": {
-        "alpinejs": "^3.7.0"
+        "alpinejs": "^3.7.0",
+        "swagger-ui": "^4.5.2"
     }
 }
