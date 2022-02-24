@@ -1,13 +1,10 @@
 openapi: 3.0.0
 info:
   title: Coronatime API
-  description: Here goes description
   version: 0.1.9
 
 servers:
-  - url: http://localhost:8000/api
-    description: local server
-  - url: http://producation.app/api
+  - url: https://coronatime.tazo.redberryinternship.ge/api
     description: production server
 
 paths:
