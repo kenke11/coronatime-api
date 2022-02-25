@@ -13,11 +13,4 @@ class Country extends Model
 	public $translatable = ['country'];
 
 	protected $guarded = [];
-
-	public function scopeSearch($query, $term)
-	{
-		$query->where(function ($query) use ($term) {
-			$query->where('country->' . app()->getLocale(), 'like', "%$term%");
-		});
-	}
 }
