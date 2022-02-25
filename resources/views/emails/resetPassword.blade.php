@@ -64,7 +64,7 @@
                     <p style="margin-top: 16px; margin-bottom: 59px">click this button to recover a password</p>
                 </div>
                 <div style="margin: 0 auto; width: 20%;">
-                    <a  href="{{'http://localhost:3000/reset-password/' . $token}}" class="button" style="background: #0FBA68; padding: 19px 33%; border-radius: 10px; color: white; font-weight: bold; text-decoration: none; margin: 0 auto">
+                    <a  href="{{'https://coronatime.tazo.redberryinternship.ge/reset-password/' . $token}}" class="button" style="background: #0FBA68; padding: 19px 33%; border-radius: 10px; color: white; font-weight: bold; text-decoration: none; margin: 0 auto">
                         <span>RECOVER<span style="color: #0FBA68">_</span>PASSWORD</span>
                     </a>
                 </div>

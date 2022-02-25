@@ -136,7 +136,7 @@ class AuthController extends Controller
 
 		return response()->json([
 			'status'  => 'success',
-			'message' => 'We have sent you a confirmation email',
+			'message' => 'We have sent you a confirmation email.',
 		]);
 	}
 
