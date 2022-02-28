@@ -71,9 +71,6 @@ class UpdateStatistic extends Command
 			}
 			echo 'Countries updated successfully!!!';
 		}
-		else
-		{
-			echo 'Countries not found!';
-		}
+		echo 'This fetching has been finished';
 	}
 }
