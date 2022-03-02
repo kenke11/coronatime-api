@@ -97,6 +97,8 @@ class AuthController extends Controller
 			'password'             => bcrypt($request->password),
 		]);
 
+//		$token = $user->createToken($user->email . '_Token');
+
 		Mail::to($user->email)->send(new VerifyEmail($user));
 
 		return response()->json([

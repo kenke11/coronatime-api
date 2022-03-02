@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
   title: Coronatime API
-  version: 0.1.9
+  version: 0.0.1
 
 servers:
-  - url: https://coronatime.tazo.redberryinternship.ge/api
+  - url: https://coronatime-api.tazo.redberryinternship.ge/api
     description: production server
 
 paths:
