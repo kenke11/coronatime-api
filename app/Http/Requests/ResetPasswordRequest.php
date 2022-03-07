@@ -27,6 +27,6 @@ class ResetPasswordRequest extends FormRequest
 			'status'  => 'error',
 			'message' => 'Validation error!',
 			'errors'  => $validator->errors(),
-		], 422));
+		]));
 	}
 }
