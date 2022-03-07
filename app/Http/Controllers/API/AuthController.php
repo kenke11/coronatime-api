@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ConfirmEmailRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\SignupRequest;
 use App\Mail\VerifyEmail;
@@ -60,7 +61,6 @@ class AuthController extends Controller
 
 	public function signup(SignupRequest $request)
 	{
-		dd('aq var');
 		$request->validated();
 
 		$user = User::create([
@@ -78,23 +78,9 @@ class AuthController extends Controller
 		]);
 	}
 
-	public function confirmByEmail(Request $request)
+	public function confirmByEmail(ConfirmEmailRequest $request)
 	{
-		$validator = Validator::make(
-			$request->all(),
-			[
-				'email' => 'required|email|exists:users',
-			]
-		);
-
-		if ($validator->fails())
-		{
-			return response()->json([
-				'status'  => 'error',
-				'message' => 'Validation error!',
-				'errors'  => $validator->errors(),
-			]);
-		}
+		$request->validated();
 
 		DB::table('password_resets')->insert([
 			'email'      => $request->email,

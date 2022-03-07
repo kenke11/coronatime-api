@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class SignupRequest extends FormRequest
+class ConfirmEmailRequest extends FormRequest
 {
 	public function authorize()
 	{
@@ -16,9 +16,7 @@ class SignupRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'username'    => 'required|min:3|unique:users,username',
-			'email'       => 'required|min:3|unique:users,email',
-			'password'    => 'required|min:3',
+			'email' => 'required|email|exists:users',
 		];
 	}
 
