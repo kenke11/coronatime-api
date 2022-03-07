@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Mail\VerifyEmail;
 use App\Models\User;
 use Carbon\Carbon;
@@ -25,24 +26,9 @@ class AuthController extends Controller
 		$this->resetPasswordToken = uniqid(base64_encode(Str::random(60)));
 	}
 
-	public function login(Request $request)
+	public function login(LoginRequest $request)
 	{
-		$validator = Validator::make(
-			$request->all(),
-			[
-				'username'    => 'required|min:3',
-				'password'    => 'required|min:3',
-			]
-		);
-
-		if ($validator->fails())
-		{
-			return response()->json([
-				'status'  => 'error',
-				'message' => 'Validation error!',
-				'errors'  => $validator->errors(),
-			]);
-		}
+		$request->validated();
 
 		if (auth()->attempt(['email' => $request->username, 'password' => $request->password], $request->remember_me) || auth()->attempt(['username' => $request->username, 'password' => $request->password], $request->remember_me))
 		{
