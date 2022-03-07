@@ -56,6 +56,7 @@ class AuthController extends Controller
 					'idToken' => $this->idToken,
 				]);
 			}
+
 			return response()->json([
 				'status'   => 'error',
 				'message'  => 'Email not verified.',
@@ -96,8 +97,6 @@ class AuthController extends Controller
 			'email_verified_token' => Str::random(60),
 			'password'             => bcrypt($request->password),
 		]);
-
-//		$token = $user->createToken($user->email . '_Token');
 
 		Mail::to($user->email)->send(new VerifyEmail($user));
 
