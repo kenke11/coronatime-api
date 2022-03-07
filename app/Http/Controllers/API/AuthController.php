@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\SignupRequest;
 use App\Mail\VerifyEmail;
 use App\Models\User;
 use Carbon\Carbon;
@@ -57,25 +58,10 @@ class AuthController extends Controller
 		]);
 	}
 
-	public function signup(Request $request)
+	public function signup(SignupRequest $request)
 	{
-		$validator = Validator::make(
-			$request->all(),
-			[
-				'username'    => 'required|min:3|unique:users,username',
-				'email'       => 'required|min:3|unique:users,email',
-				'password'    => 'required|min:3',
-			]
-		);
-
-		if ($validator->fails())
-		{
-			return response()->json([
-				'status'  => 'error',
-				'message' => 'Validation error!',
-				'errors'  => $validator->errors(),
-			]);
-		}
+		dd('aq var');
+		$request->validated();
 
 		$user = User::create([
 			'username'             => $request->username,
