@@ -5,15 +5,14 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ConfirmEmailRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\SignupRequest;
 use App\Mail\VerifyEmail;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class AuthController extends Controller
@@ -99,24 +98,9 @@ class AuthController extends Controller
 		]);
 	}
 
-	public function resetPassword(Request $request)
+	public function resetPassword(ResetPasswordRequest $request)
 	{
-		$validator = Validator::make(
-			$request->all(),
-			[
-				'token'    => 'required',
-				'password' => 'required|min:3',
-			]
-		);
-
-		if ($validator->fails())
-		{
-			return response()->json([
-				'status'  => 'error',
-				'message' => 'Validation error!',
-				'errors'  => $validator->errors(),
-			]);
-		}
+		$request->validated();
 
 		$updatePassword = DB::table('password_resets')
 			->where('token', $request->token)->first();
